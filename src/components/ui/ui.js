@@ -1,5 +1,5 @@
 const HEADER = () => {
-  console.log("header");
+  console.log("TEST");
 };
 
 export { HEADER };
