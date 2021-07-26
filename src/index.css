@@ -1,3 +1,4 @@
-body {
-  background-color: red;
-}
+@import "./components/ui/css/ui.css";
+@import "./components/ui/css/ui_mobile.css";
+@import "./components/ui/css/ui_mobile_landscape.css";
+@import "./components/ui/css/ui_desktop.css";
