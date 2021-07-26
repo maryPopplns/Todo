@@ -1,3 +1,4 @@
-import { HEADER } from "./components/ui/ui.js";
+import "./index.css";
+import { HEADER } from "./ui/ui.js";
 
 HEADER();

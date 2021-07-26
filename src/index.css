@@ -1,5 +1,5 @@
 @import "./reset.css";
-@import "./components/ui/css/ui.css";
-@import "./components/ui/css/ui_mobile.css";
-@import "./components/ui/css/ui_mobile_landscape.css";
-@import "./components/ui/css/ui_desktop.css";
+@import "./ui/css/ui.css";
+@import "./ui/css/ui_mobile.css";
+@import "./ui/css/ui_mobile_landscape.css";
+@import "./ui/css/ui_desktop.css";
