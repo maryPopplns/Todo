@@ -1,5 +1,5 @@
-const UI = () => {
-  console.log("ui");
+const HEADER = () => {
+  console.log("header");
 };
 
-export { UI };
+export { HEADER };

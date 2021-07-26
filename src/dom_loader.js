@@ -1,3 +1,3 @@
-import { UI } from "./components/ui/ui.js";
+import { HEADER } from "./components/ui/ui.js";
 
-UI();
+HEADER();
