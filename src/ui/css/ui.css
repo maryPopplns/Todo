@@ -1,7 +1,24 @@
+:root {
+  --background: rgb(28, 26, 26);
+}
+
+body {
+  background-color: var(--background);
+}
+
 header {
   display: flex;
 }
 
-#nav_bar_toggle {
+#nav_bar_toggle_button {
+  background-color: transparent;
   border: none;
+}
+
+.fa-align-justify {
+  color: white;
+}
+
+h1 {
+  color: rgb(30, 196, 138);
 }

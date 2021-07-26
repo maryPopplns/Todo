@@ -1,4 +1,5 @@
 import "./index.css";
-import { HEADER } from "./ui/ui.js";
+import { HEADER, META_DATA } from "./ui/ui.js";
 
+META_DATA();
 HEADER();
