@@ -1,0 +1,7 @@
+header {
+  display: flex;
+}
+
+#nav_bar_toggle {
+  border: none;
+}
