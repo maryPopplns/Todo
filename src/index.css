@@ -1,7 +1,8 @@
 @import "./reset.css";
 @import "./ui/css/ui.css";
-@import "./ui/css/desktop.css";
-@import "./ui/css/tablet_portrait.css";
-@import "./ui/css/tablet_landscape.css";
 @import "./ui/css/mobile_portrait.css";
 @import "./ui/css/mobile_landscape.css";
+@import "./ui/css/tablet_portrait.css";
+@import "./ui/css/tablet_landscape.css";
+@import "./ui/css/laptop_desktop.css";
+@import "./ui/css/desktop.css";
