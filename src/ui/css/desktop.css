@@ -1,0 +1,15 @@
+@media (min-width: 1281px) {
+  h1 {
+    font-size: 5em;
+  }
+
+  /* #nav_bar_toggle_button {
+    visibility: hidden;
+    bottom: 3em;
+    right: 3em;
+  }
+
+  .fa-align-justify {
+    font-size: 5em;
+  } */
+}

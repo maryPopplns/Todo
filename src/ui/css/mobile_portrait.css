@@ -1,0 +1,9 @@
+@media (min-width: 320px) and (max-width: 480px) {
+  h1 {
+    font-size: 2em;
+  }
+
+  /* .fa-align-justify {
+    font-size: 4em;
+  } */
+}

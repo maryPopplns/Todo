@@ -15,16 +15,16 @@ const META_DATA = () => {
   document.head.append(FONT_AWESOME);
 };
 
-const TOGGLE_BUTTON = () => {
-  const NAV_BAR_TOGGLE = document.createElement("button");
-  const NAV_BAR_ICON = document.createElement("i");
+// const TOGGLE_BUTTON = () => {
+//   const NAV_BAR_TOGGLE = document.createElement("button");
+//   const NAV_BAR_ICON = document.createElement("i");
 
-  NAV_BAR_TOGGLE.id = "nav_bar_toggle_button";
-  NAV_BAR_ICON.classList = "fas fa-align-justify";
+//   NAV_BAR_TOGGLE.id = "nav_bar_toggle_button";
+//   NAV_BAR_ICON.classList = "fas fa-align-justify";
 
-  document.body.append(NAV_BAR_TOGGLE);
-  NAV_BAR_TOGGLE.append(NAV_BAR_ICON);
-};
+//   document.body.append(NAV_BAR_TOGGLE);
+//   NAV_BAR_TOGGLE.append(NAV_BAR_ICON);
+// };
 
 const HEADER = () => {
   const HEADER_CONTAINER = document.createElement("header");
@@ -33,7 +33,7 @@ const HEADER = () => {
   NAV_BAR_TEXT.innerText = "Task Master";
 
   document.body.append(HEADER_CONTAINER);
-  TOGGLE_BUTTON();
+  // TOGGLE_BUTTON();
   HEADER_CONTAINER.append(NAV_BAR_TEXT);
 };
 
