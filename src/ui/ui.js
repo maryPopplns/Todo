@@ -38,19 +38,19 @@ const HEADER = () => {
 
 const NAV_BAR = () => {
   const NAV_CONTAINER = document.createElement("nav");
-  const NAV_BAR_LIST = document.createElement("ol");
+  const DUE_CONTAINER = document.createElement("ol");
   const DUE_TODAY = document.createElement("li");
   const DUE_THIS_WEEK = document.createElement("li");
-  const GROUP_TITLE = document.createElement("h2");
+  const DUE_THIS_MONTH = document.createElement("li");
   const GROUP_CONTAINER = document.createElement("ol");
   const GROUP_GROUP = document.createElement("button");
   const PLUS_ICON = document.createElement("i");
 
   NAV_CONTAINER.id = "nav_container";
-  NAV_BAR_LIST.id = "nav_bar_list";
+  DUE_CONTAINER.id = "due_container";
   DUE_TODAY.id = "due_today";
   DUE_THIS_WEEK.id = "due_this_week";
-  GROUP_TITLE.id = "group_title";
+  DUE_THIS_MONTH.id = "due_this_month";
   GROUP_CONTAINER.id = "task_group_container";
   GROUP_GROUP.id = "add_group";
   PLUS_ICON.id = "add_group_plus_sign";
@@ -58,24 +58,27 @@ const NAV_BAR = () => {
   const VISIBLE_NAV_ITEMS = [
     DUE_TODAY,
     DUE_THIS_WEEK,
-    GROUP_TITLE,
+    DUE_THIS_MONTH,
     GROUP_CONTAINER,
     GROUP_GROUP,
   ].map((element) => (element.classList = "nav_item"));
+  const TIME_PERIOD_VIEW = [DUE_TODAY, DUE_THIS_WEEK, DUE_THIS_MONTH].map(
+    (element) => (element.classList = "time_periods")
+  );
   PLUS_ICON.classList = "fas fa-plus-circle";
 
   DUE_TODAY.innerText = "Today";
   DUE_THIS_WEEK.innerText = "Week";
-  GROUP_TITLE.innerText = "Groups";
+  DUE_THIS_MONTH.innerText = "Month";
   GROUP_GROUP.innerText = "group";
 
   document.body.append(NAV_CONTAINER);
-  NAV_CONTAINER.append(NAV_BAR_LIST);
-  NAV_BAR_LIST.append(DUE_TODAY);
-  NAV_BAR_LIST.append(DUE_THIS_WEEK);
-  NAV_BAR_LIST.append(GROUP_TITLE);
-  NAV_BAR_LIST.append(GROUP_CONTAINER);
-  NAV_BAR_LIST.append(GROUP_GROUP);
+  NAV_CONTAINER.append(DUE_CONTAINER);
+  DUE_CONTAINER.append(DUE_TODAY);
+  DUE_CONTAINER.append(DUE_THIS_WEEK);
+  DUE_CONTAINER.append(DUE_THIS_MONTH);
+  DUE_CONTAINER.append(GROUP_CONTAINER);
+  DUE_CONTAINER.append(GROUP_GROUP);
   GROUP_GROUP.prepend(PLUS_ICON);
 };
 
