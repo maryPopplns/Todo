@@ -1,2 +1,9 @@
-@media screen and (max-width: 850px) and (max-height: 450px) {
+@media screen and (min-width: 450px) and (min-height: 450px) {
+  h1 {
+    font-size: 4em;
+  }
+
+  .fa-align-justify {
+    font-size: 4em;
+  }
 }

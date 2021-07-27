@@ -1,16 +1,9 @@
 @media screen and (max-width: 850px) and (max-height: 450px) {
-  header {
-    margin: 1em;
-  }
-
   .fa-align-justify {
-    position: relative;
     font-size: 2em;
   }
 
   h1 {
-    position: relative;
-    left: 10em;
     font-size: 2em;
   }
 }

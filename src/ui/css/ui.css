@@ -7,10 +7,15 @@ body {
 }
 
 header {
+  margin-top: 1em;
   display: flex;
+  justify-content: center;
 }
 
 #nav_bar_toggle_button {
+  position: fixed;
+  bottom: 1em;
+  right: 1em;
   background-color: transparent;
   border: none;
 }
