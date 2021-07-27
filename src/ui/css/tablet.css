@@ -1,0 +1,40 @@
+:root {
+  --green: rgb(35, 179, 129);
+  --top: 6em;
+}
+
+/* <-portrait-> */
+/* @media (min-width: 768px) and (max-width: 1024px) { */
+@media (min-width: 768px) {
+  h1 {
+    font-size: 5em;
+  }
+
+  #nav_container {
+    background-color: var(--green);
+    position: fixed;
+    top: var(--top);
+    left: 0;
+    height: calc(100vh - var(--top));
+    width: 10em;
+  }
+
+  #nav_bar_list {
+    margin-top: 3em;
+    display: flex;
+    flex-direction: column;
+    gap: 2em;
+  }
+
+  #group_title {
+    margin-top: 3em;
+  }
+
+  #add_group {
+    margin: auto;
+    padding: 0.75em;
+    width: 10em;
+    border: 1px solid black;
+    border-radius: 2em;
+  }
+}

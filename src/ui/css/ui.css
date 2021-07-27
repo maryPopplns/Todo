@@ -20,15 +20,17 @@ h1 {
   font-family: "Archivo Black", sans-serif;
 }
 
-/* #nav_bar_toggle_button {
-  position: fixed;
-  bottom: 1em;
-  right: 1em;
-  background-color: transparent;
-  border: none;
+#nav_bar_toggle_button {
+  display: none;
 }
 
-.fa-align-justify {
-  animation: menu_button 4s linear infinite;
-  color: var(--green);
-} */
+#add_group {
+  border: none;
+  background-color: var(--green);
+  width: 8em;
+}
+
+#add_group_plus_sign {
+  margin-right: 1em;
+  color: white;
+}
