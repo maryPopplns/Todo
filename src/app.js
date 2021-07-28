@@ -10,7 +10,6 @@ const Group_class = (input_label) => {
     input_notes = ""
   ) => {
     const COUNT = task_count;
-
     const GET_COUNT = () => COUNT;
     const GET_TITLE = () => input_title;
     const GET_DUE_DATE = () => input_due_date;

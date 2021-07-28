@@ -1,5 +1,5 @@
 import { groups, Group_class } from "./app.js";
-import { RENDER_GROUPS } from "./dom/dom.js";
+import { RENDER_NAV_BAR_GROUPS } from "./dom/dom.js";
 
 // if local storage has groups saved, load those
 // otherwise load default groups
@@ -24,7 +24,9 @@ const DEFAULT_GYM_GROUP = () => {
   groups.push(GROUP);
 };
 
+// <-only run these if there is no local storage->
 DEFAULT_SCHOOL_GROUP();
 DEFAULT_GYM_GROUP();
+// <-only run these if there is no local storage->
 
-RENDER_GROUPS();
+RENDER_NAV_BAR_GROUPS();
