@@ -4,8 +4,9 @@ const HtmlWebpackPlugin = require("html-webpack-plugin");
 module.exports = {
   mode: "development",
   entry: {
-    dom_loader: "./src/dom_loader.js",
     app: "./src/app.js",
+    dom_loader: "./src/dom_loader.js",
+    default_groups: "./src/default_groups.js",
   },
   devtool: "inline-source-map",
   devServer: {

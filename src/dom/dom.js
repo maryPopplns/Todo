@@ -1,3 +1,5 @@
+import { groups } from "../app.js";
+
 const META_DATA = () => {
   const FONT_AWESOME = document.createElement("link");
 
@@ -78,4 +80,8 @@ const NAV_BAR = () => {
   ADD_GROUP_BUTTON.prepend(ADD_GROUP_PLUS_ICON);
 };
 
-export { HEADER, META_DATA, NAV_BAR, MENU_BUTTON };
+const RENDER_GROUPS = () => {
+  console.log(groups);
+};
+
+export { HEADER, META_DATA, NAV_BAR, MENU_BUTTON, RENDER_GROUPS };

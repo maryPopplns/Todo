@@ -29,3 +29,5 @@ const Group_class = (input_label) => {
 
   return { GET_LABEL, GET_TASKS, ADD_TASK };
 };
+
+export { groups, Group_class };
