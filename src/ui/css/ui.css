@@ -26,15 +26,28 @@ h1 {
   display: none;
 }
 
+#due_today {
+  background-color: rgb(35, 191, 136);
+}
+
+#due_this_week {
+  background-color: rgb(40, 189, 167);
+}
+
+#due_this_month {
+  background-color: rgb(35, 171, 201);
+}
+
 #add_group {
+  margin: auto;
   border: 2px solid black;
   font-family: "Libre Franklin", sans-serif;
-  font-size: 0.8em;
   display: flex;
   justify-content: space-around;
   align-items: center;
   background-color: var(--green);
   width: 8em;
+  border-radius: 2em;
 }
 
 #add_group_plus_sign {

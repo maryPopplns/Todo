@@ -1,5 +1,5 @@
 /* <-portrait-> */
-@media (min-width: 320px) and (max-width: 480px) {
+@media (min-width: 320px) and (max-width: 767px) {
   h1 {
     font-size: 2em;
   }
@@ -7,42 +7,13 @@
   #nav_container {
     margin-top: 2em;
     display: flex;
-    justify-content: center;
-    /* display: none; */
-  }
-
-  #due_container {
-    display: flex;
     flex-direction: column;
-    gap: 1em;
-    align-items: center;
-  }
-
-  #nav_bar_toggle_button {
-    display: block;
-    position: fixed;
-    bottom: 2em;
-    right: 2em;
-  }
-}
-
-/* <-landscape-> */
-@media (min-width: 481px) and (max-width: 767px) {
-  h1 {
-    font-size: 3em;
-  }
-
-  #nav_container {
-    margin-top: 2em;
-    display: flex;
-    justify-content: center;
     display: none;
   }
 
   #due_container {
     display: flex;
     flex-direction: column;
-    gap: 1em;
     align-items: center;
   }
 
@@ -51,5 +22,19 @@
     position: fixed;
     bottom: 2em;
     right: 2em;
+  }
+
+  .time_periods {
+    width: 90vw;
+    text-align: center;
+    padding: 1em;
+  }
+
+  #group_container {
+    margin-top: 8em;
+  }
+
+  #add_group {
+    padding: 0.5em;
   }
 }

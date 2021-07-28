@@ -3,8 +3,6 @@
   --top: 6em;
 }
 
-/* <-portrait-> */
-/* @media (min-width: 768px) and (max-width: 1024px) { */
 @media (min-width: 768px) {
   h1 {
     font-size: 5em;
@@ -23,7 +21,6 @@
     margin-top: 3em;
     display: flex;
     flex-direction: column;
-    /* gap: 2em; */
   }
 
   .time_periods {
@@ -54,15 +51,13 @@
     background-color: black;
     color: var(--green);
     font-size: 0.8em;
-    margin: auto;
     padding: 0.75em;
     width: 10em;
-    border-radius: 2em;
   }
 
   #add_group:hover {
-    background-color: var(--green);
     color: black;
+    background-color: var(--green);
   }
 
   #add_group_plus_sign {
