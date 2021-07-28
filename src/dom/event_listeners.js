@@ -6,6 +6,8 @@ const EVENT_LISTENERS = () => {
     NAV_MENU.style.display = "block";
     MENU_BUTTON.style.display = "none";
   });
+
+  // <-due days->
 };
 
 export { EVENT_LISTENERS };
