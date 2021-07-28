@@ -82,15 +82,6 @@ const NAV_BAR = () => {
 
 const RENDER_NAV_BAR_GROUPS = () => {
   const GROUPS_CONTAINER = document.getElementById("task_group_container");
-  groups.map((group) => {
-    const GROUP_LABEL = group.GET_LABEL();
-    const LI = document.createElement("li");
-
-    LI.innerText = GROUP_LABEL;
-    LI.classList = "group_list";
-
-    GROUPS_CONTAINER.append(LI);
-  });
 };
 
 export { HEADER, META_DATA, NAV_BAR, MENU_BUTTON, RENDER_NAV_BAR_GROUPS };

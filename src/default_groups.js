@@ -1,32 +1,20 @@
-import { groups, Group_class } from "./app.js";
+import { groups } from "./app.js";
 import { RENDER_NAV_BAR_GROUPS } from "./dom/dom.js";
 
-// if local storage has groups saved, load those
-// otherwise load default groups
+if (window.localStorage.length === 0) {
+  // <-school->
+  const DEFAULT_SCHOOL_GROUP = (() => {})();
 
-const DEFAULT_SCHOOL_GROUP = () => {
-  const GROUP = Group_class("school");
+  // <-gym->
+  const DEFAULT_GYM_GROUP = (() => {})();
 
-  GROUP.ADD_TASK("math homework");
-  GROUP.ADD_TASK("read chapter 2 of History book");
-  GROUP.ADD_TASK("write Enlish paper");
-
-  groups.push(GROUP);
-};
-
-const DEFAULT_GYM_GROUP = () => {
-  const GROUP = Group_class("gym");
-
-  GROUP.ADD_TASK("warm up");
-  GROUP.ADD_TASK("train");
-  GROUP.ADD_TASK("warm down");
-
-  groups.push(GROUP);
-};
-
-// <-only run these if there is no local storage->
-DEFAULT_SCHOOL_GROUP();
-DEFAULT_GYM_GROUP();
-// <-only run these if there is no local storage->
-
-RENDER_NAV_BAR_GROUPS();
+  // RENDER_NAV_BAR_GROUPS();
+  // window.localStorage.setItem("groups", JSON.stringify(groups));
+} else {
+  // const LOCAL_STORAGE_GROUPS = JSON.parse(
+  //   window.localStorage.getItem("groups")
+  // );
+  //
+  // RENDER_NAV_BAR_GROUPS();
+  // <-copy local data to groups->
+}
