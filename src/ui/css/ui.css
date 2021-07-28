@@ -1,4 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Archivo+Black&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Libre+Franklin:wght@500&display=swap");
 
 :root {
   --background: rgb(28, 26, 26);
@@ -7,6 +8,7 @@
 
 body {
   background-color: var(--background);
+  font-family: "Archivo Black", sans-serif;
 }
 
 header {
@@ -18,7 +20,6 @@ header {
 
 h1 {
   color: var(--green);
-  font-family: "Archivo Black", sans-serif;
 }
 
 #nav_bar_toggle_button {
@@ -26,15 +27,16 @@ h1 {
 }
 
 #add_group {
+  border: 2px solid black;
+  font-family: "Libre Franklin", sans-serif;
+  font-size: 0.8em;
   display: flex;
   justify-content: space-around;
   align-items: center;
-  border: none;
   background-color: var(--green);
   width: 8em;
 }
 
 #add_group_plus_sign {
   margin-right: 1em;
-  color: white;
 }

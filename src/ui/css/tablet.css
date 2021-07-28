@@ -23,24 +23,46 @@
     margin-top: 3em;
     display: flex;
     flex-direction: column;
-    gap: 2em;
+    /* gap: 2em; */
   }
 
-  #group_title {
-    margin-top: 3em;
-  }
-
-  #add_group {
-    margin: auto;
-    padding: 0.75em;
-    width: 10em;
-    border: 2px solid black;
-    border-radius: 2em;
+  .time_periods {
+    padding: 1em;
   }
 
   .time_periods:hover {
     text-indent: 2em;
-    /* color: var(--green); */
+  }
+
+  #due_today {
+    background-color: rgb(35, 191, 136);
+  }
+
+  #due_this_week {
+    background-color: rgb(40, 189, 167);
+  }
+
+  #due_this_month {
+    background-color: rgb(35, 171, 201);
+  }
+
+  #group_container {
+    margin-top: 10em;
+  }
+
+  #add_group {
+    background-color: black;
+    color: var(--green);
+    font-size: 0.8em;
+    margin: auto;
+    padding: 0.75em;
+    width: 10em;
+    border-radius: 2em;
+  }
+
+  #add_group:hover {
+    background-color: var(--green);
+    color: black;
   }
 
   #add_group_plus_sign {
