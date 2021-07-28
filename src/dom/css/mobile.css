@@ -1,3 +1,7 @@
+:root {
+  --green: rgb(35, 179, 129);
+}
+
 /* <-portrait-> */
 @media (min-width: 320px) and (max-width: 767px) {
   h1 {
@@ -17,11 +21,18 @@
     align-items: center;
   }
 
-  #nav_bar_toggle_button {
+  #hamburger_menu_button {
+    background: transparent;
+    border: none;
     display: block;
     position: fixed;
     bottom: 2em;
     right: 2em;
+  }
+
+  .fa-align-justify {
+    color: var(--green);
+    font-size: 3em;
   }
 
   .time_periods {

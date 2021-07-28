@@ -22,7 +22,7 @@ h1 {
   color: var(--green);
 }
 
-#nav_bar_toggle_button {
+#hamburger_menu_button {
   display: none;
 }
 

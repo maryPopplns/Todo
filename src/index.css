@@ -1,5 +1,4 @@
 @import "./reset.css";
-@import "./ui/css/ui.css";
-@import "./ui/css/mobile.css";
-@import "./ui/css/tablet.css";
-/* @import "./ui/css/laptop_desktop.css"; */
+@import "./dom/css/global.css";
+@import "./dom/css/mobile.css";
+@import "./dom/css/tablet.css";

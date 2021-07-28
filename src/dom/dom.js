@@ -15,15 +15,15 @@ const META_DATA = () => {
   document.head.append(FONT_AWESOME);
 };
 
-const TOGGLE_BUTTON = () => {
-  const NAV_BAR_TOGGLE = document.createElement("button");
-  const NAV_BAR_ICON = document.createElement("i");
+const MENU_BUTTON = () => {
+  const HAMBURGER_MENU_BUTTON = document.createElement("button");
+  const HAMBURGER_BUTTON_ICON = document.createElement("i");
 
-  NAV_BAR_TOGGLE.id = "nav_bar_toggle_button";
-  NAV_BAR_ICON.classList = "fas fa-align-justify";
+  HAMBURGER_MENU_BUTTON.id = "hamburger_menu_button";
+  HAMBURGER_BUTTON_ICON.classList = "fas fa-align-justify";
 
-  document.body.append(NAV_BAR_TOGGLE);
-  NAV_BAR_TOGGLE.append(NAV_BAR_ICON);
+  document.body.append(HAMBURGER_MENU_BUTTON);
+  HAMBURGER_MENU_BUTTON.append(HAMBURGER_BUTTON_ICON);
 };
 
 const HEADER = () => {
@@ -78,4 +78,4 @@ const NAV_BAR = () => {
   ADD_GROUP_BUTTON.prepend(ADD_GROUP_PLUS_ICON);
 };
 
-export { HEADER, META_DATA, NAV_BAR, TOGGLE_BUTTON };
+export { HEADER, META_DATA, NAV_BAR, MENU_BUTTON };

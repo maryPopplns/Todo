@@ -1,7 +1,9 @@
 import "./index.css";
-import { HEADER, META_DATA, NAV_BAR, TOGGLE_BUTTON } from "./ui/ui.js";
+import { HEADER, MENU_BUTTON, META_DATA, NAV_BAR } from "./dom/dom.js";
+import { EVENT_LISTENERS } from "./dom/event_listeners.js";
 
 META_DATA();
 HEADER();
 NAV_BAR();
-TOGGLE_BUTTON();
+MENU_BUTTON();
+EVENT_LISTENERS();
