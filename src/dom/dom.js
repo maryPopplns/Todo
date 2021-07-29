@@ -85,6 +85,7 @@ const RENDER_NAV_BAR_GROUPS = () => {
   for (let prop in groups) {
     const GROUP = document.createElement("li");
 
+    GROUP.classList = "nav_bar_group";
     GROUP.innerText = prop;
 
     GROUPS_CONTAINER.append(GROUP);

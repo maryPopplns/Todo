@@ -40,19 +40,34 @@
     display: flex;
     flex-direction: column;
     overflow-y: auto;
-    border: 1px solid black;
+    /* border: 1px solid black; */
     height: 10em;
     width: 10em;
   }
 
-  .group_list {
-    font-size: 0.75em;
-    text-indent: 0.5em;
-    padding: 0.5em;
+  ::-webkit-scrollbar {
+    width: 10px;
   }
 
-  .group_list:hover {
+  ::-webkit-scrollbar-track {
+    background: var(--green);
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: rgb(0, 0, 0);
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: rgb(0, 0, 0);
+  }
+
+  .nav_bar_group {
     text-indent: 1em;
+    padding: 0.25em;
+  }
+
+  .nav_bar_group:hover {
+    text-indent: 2em;
   }
 
   #add_group {
