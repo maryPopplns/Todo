@@ -36,12 +36,17 @@ const EVENT_LISTENERS = () => {
 
     SUBMIT_BUTTON.addEventListener("click", () => {
       const INPUT_TEXT = document.getElementById("add_group_input").value;
-      groups[INPUT_TEXT] = [];
-      document.getElementById("add_group_input").value = "";
-      RENDER_NAV_BAR_GROUPS();
-      document.getElementById("add_group").style.display = "flex";
-      document.getElementById("add_group_form").style.display = "none";
-      SET_STORAGE();
+      const INPUT_FIELD = document.getElementById("add_group_input");
+      if (INPUT_TEXT === "") {
+        INPUT_FIELD.style.backgroundColor = "rgb(181, 40, 40)";
+      } else {
+        groups[INPUT_TEXT] = [];
+        INPUT_FIELD.value = "";
+        RENDER_NAV_BAR_GROUPS();
+        document.getElementById("add_group").style.display = "flex";
+        document.getElementById("add_group_form").style.display = "none";
+        SET_STORAGE();
+      }
     });
   })();
 
@@ -92,8 +97,9 @@ const ATTACH_DELETE_GROUP_LISTENER = (input_element) => {
 
 const ATTACH_RENDER_GROUP_LISTENER = (input_element) => {
   input_element.addEventListener("click", (event) => {
-    const TARGET_DATA_GROUP_TEXT = event.target.getAttribute("data-group-text");
-    console.log(TARGET_DATA_GROUP_TEXT);
+    const TARGET_DATA_GROUP_TASKS =
+      groups[event.target.getAttribute("data-group-text")];
+    console.log(TARGET_DATA_GROUP_TASKS);
   });
 };
 
