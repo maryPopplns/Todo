@@ -71,7 +71,7 @@ const ATTACH_DELETE_GROUP_LISTENER = (input_element) => {
     const GROUP_CONTAINER = document.querySelector(
       `[data-group-container=${TARGET_DATA_GROUP}]`
     );
-    GROUP_CONTAINER.style.backgroundColor = "#b52828";
+    GROUP_CONTAINER.style.backgroundColor = "#9b2525e6";
   });
 
   input_element.addEventListener("mouseleave", (event) => {
@@ -90,4 +90,15 @@ const ATTACH_DELETE_GROUP_LISTENER = (input_element) => {
   });
 };
 
-export { EVENT_LISTENERS, ATTACH_DELETE_GROUP_LISTENER };
+const ATTACH_RENDER_GROUP_LISTENER = (input_element) => {
+  input_element.addEventListener("click", (event) => {
+    const TARGET_DATA_GROUP_TEXT = event.target.getAttribute("data-group-text");
+    console.log(TARGET_DATA_GROUP_TEXT);
+  });
+};
+
+export {
+  EVENT_LISTENERS,
+  ATTACH_DELETE_GROUP_LISTENER,
+  ATTACH_RENDER_GROUP_LISTENER,
+};

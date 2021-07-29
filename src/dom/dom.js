@@ -1,5 +1,8 @@
 import { groups } from "../app.js";
-import { ATTACH_DELETE_GROUP_LISTENER } from "./event_listeners.js";
+import {
+  ATTACH_DELETE_GROUP_LISTENER,
+  ATTACH_RENDER_GROUP_LISTENER,
+} from "./event_listeners.js";
 
 const META_DATA = () => {
   const FONT_AWESOME = document.createElement("link");
@@ -102,18 +105,23 @@ const RENDER_NAV_BAR_GROUPS = () => {
   const GROUPS_CONTAINER = document.getElementById("task_group_container");
   for (let prop in groups) {
     const GROUP = document.createElement("li");
+    const TEXT = document.createElement("h3");
     const TRASH = document.createElement("i");
 
     GROUP.setAttribute("data-group-container", prop);
     GROUP.classList = "nav_bar_group";
-    GROUP.innerText = prop;
+    TEXT.setAttribute("data-group-text", prop);
+    TEXT.innerText = prop;
+    TEXT.classList = "individual_group_heading";
     TRASH.classList = "delete_group fa fa-trash";
     TRASH.setAttribute("data-group", prop);
     TRASH.setAttribute("aria-hidden", "true");
 
     ATTACH_DELETE_GROUP_LISTENER(TRASH);
+    ATTACH_RENDER_GROUP_LISTENER(TEXT);
 
     GROUPS_CONTAINER.append(GROUP);
+    GROUP.append(TEXT);
     GROUP.append(TRASH);
   }
 };

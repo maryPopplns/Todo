@@ -61,6 +61,11 @@
     padding: 0.25em;
   }
 
+  .individual_group_heading {
+    width: 15em;
+    font-size: 1em;
+  }
+
   .nav_bar_group:hover {
     text-indent: 2em;
   }
