@@ -106,22 +106,24 @@ const RENDER_NAV_BAR_GROUPS = () => {
   }
 };
 
-const ADD_GROUP_INPUT_HANDLER = () => {
+const ADD_GROUP_INPUT = () => {
   const GROUP_CONTAINER = document.getElementById("group_container");
   const FORM = document.createElement("form");
+  const CANCEL = document.createElement("i");
   const INPUT = document.createElement("input");
   const SUBMIT = document.createElement("i");
 
   FORM.id = "add_group_form";
+  CANCEL.id = "cancel_group_icon";
+  CANCEL.classList = "fas fa-window-close";
   INPUT.id = "add_group_input";
   SUBMIT.classList = "fas fa-sign-in-alt";
   SUBMIT.id = "submit_group_icon";
 
   GROUP_CONTAINER.append(FORM);
+  FORM.append(CANCEL);
   FORM.append(INPUT);
   FORM.append(SUBMIT);
-
-  document.getElementById("add_group").remove();
 };
 
 export {
@@ -130,5 +132,5 @@ export {
   NAV_BAR,
   MENU_BUTTON,
   RENDER_NAV_BAR_GROUPS,
-  ADD_GROUP_INPUT_HANDLER,
+  ADD_GROUP_INPUT,
 };

@@ -86,7 +86,11 @@ nav {
 }
 
 #add_group_form {
-  display: flex;
-  justify-content: space-evenly;
+  justify-content: space-around;
   align-items: center;
+  display: none;
+}
+
+.fa-window-close {
+  color: rgb(181, 40, 40);
 }
