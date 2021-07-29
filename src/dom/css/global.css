@@ -6,12 +6,25 @@
   --green: rgb(35, 179, 129);
 }
 
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--green);
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgb(0, 0, 0);
+}
+
 body {
   background-color: var(--background);
   font-family: "Archivo Black", sans-serif;
 }
 
 header {
+  user-select: none;
   margin-top: 1em;
   display: flex;
   justify-content: center;
@@ -30,6 +43,10 @@ h1 {
   list-style: inside;
 }
 
+.time_periods {
+  cursor: grab;
+}
+
 #due_today {
   background-color: rgb(35, 191, 136);
 }
@@ -44,6 +61,14 @@ h1 {
 
 #task_group_container {
   list-style: inside;
+}
+
+nav {
+  user-select: none;
+}
+
+.nav_bar_group {
+  cursor: grab;
 }
 
 #add_group {
