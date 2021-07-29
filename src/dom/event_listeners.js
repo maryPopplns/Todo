@@ -54,12 +54,12 @@ const EVENT_LISTENERS = () => {
 
       if (GROUPS.includes(INPUT_TEXT)) {
         INPUT_FIELD.style.backgroundColor = "rgb(181, 40, 40)";
-        INPUT_FIELD.style.width = "6.7em";
-        document.getElementById("submit_group_icon").style.display = "none";
+        document.getElementById("submit_group_icon").style.visibility =
+          "hidden";
       } else {
         INPUT_FIELD.style.backgroundColor = "rgb(35, 179, 129)";
-        INPUT_FIELD.style.width = "5.5em";
-        document.getElementById("submit_group_icon").style.display = "block";
+        document.getElementById("submit_group_icon").style.visibility =
+          "visible";
       }
     });
   })();

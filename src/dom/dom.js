@@ -101,11 +101,17 @@ const RENDER_NAV_BAR_GROUPS = () => {
   const GROUPS_CONTAINER = document.getElementById("task_group_container");
   for (let prop in groups) {
     const GROUP = document.createElement("li");
+    const TRASH = document.createElement("i");
 
+    GROUP.setAttribute("data-group-container", prop);
     GROUP.classList = "nav_bar_group";
     GROUP.innerText = prop;
+    TRASH.classList = "fa fa-trash";
+    TRASH.setAttribute("data-group", prop);
+    TRASH.setAttribute("aria-hidden", "true");
 
     GROUPS_CONTAINER.append(GROUP);
+    GROUP.append(TRASH);
   }
 };
 

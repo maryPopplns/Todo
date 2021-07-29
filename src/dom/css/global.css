@@ -43,6 +43,10 @@ h1 {
   list-style: inside;
 }
 
+#due_heading {
+  text-decoration: underline;
+}
+
 .time_periods {
   cursor: grab;
 }
@@ -73,6 +77,10 @@ nav {
 }
 
 .nav_bar_group {
+  border-top: 1px solid transparent;
+  border-bottom: 1px solid transparent;
+  display: flex;
+  justify-content: space-between;
   cursor: grab;
   background-color: rgb(40, 189, 167);
 }
@@ -92,6 +100,10 @@ nav {
   background-color: var(--green);
   width: 8em;
   border-radius: 2em;
+}
+
+#group_heading {
+  text-decoration: underline;
 }
 
 #add_group_form {
