@@ -68,7 +68,9 @@ nav {
 }
 
 .nav_bar_group {
+  border: 1px solid rgb(35, 171, 201);
   cursor: grab;
+  background-color: rgb(40, 189, 167);
 }
 
 #add_group {
@@ -81,4 +83,10 @@ nav {
   background-color: var(--green);
   width: 8em;
   border-radius: 2em;
+}
+
+#add_group_form {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
 }

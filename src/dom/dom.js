@@ -38,6 +38,19 @@ const HEADER = () => {
   HEADER_CONTAINER.append(NAV_BAR_TEXT);
 };
 
+const ADD_GROUP_BUTTON = () => {
+  const ADD_GROUP_BUTTON = document.createElement("button");
+  const ADD_GROUP_PLUS_ICON = document.createElement("i");
+
+  ADD_GROUP_BUTTON.id = "add_group";
+  ADD_GROUP_BUTTON.innerText = "group";
+  ADD_GROUP_PLUS_ICON.id = "add_group_plus_sign";
+  ADD_GROUP_PLUS_ICON.classList = "fas fa-plus-circle";
+
+  document.getElementById("group_container").append(ADD_GROUP_BUTTON);
+  ADD_GROUP_BUTTON.prepend(ADD_GROUP_PLUS_ICON);
+};
+
 const NAV_BAR = () => {
   const NAV_CONTAINER = document.createElement("nav");
   const DUE_CONTAINER = document.createElement("ol");
@@ -48,8 +61,6 @@ const NAV_BAR = () => {
   const GROUP_CONTAINER = document.createElement("div");
   const GROUP_HEADING = document.createElement("h2");
   const GROUP_LIST = document.createElement("ol");
-  const ADD_GROUP_BUTTON = document.createElement("button");
-  const ADD_GROUP_PLUS_ICON = document.createElement("i");
 
   NAV_CONTAINER.id = "nav_container";
   DUE_CONTAINER.id = "due_container";
@@ -60,20 +71,16 @@ const NAV_BAR = () => {
   GROUP_CONTAINER.id = "group_container";
   GROUP_HEADING.id = "group_heading";
   GROUP_LIST.id = "task_group_container";
-  ADD_GROUP_BUTTON.id = "add_group";
-  ADD_GROUP_PLUS_ICON.id = "add_group_plus_sign";
 
   const TIME_PERIOD_VIEW = [DUE_TODAY, DUE_THIS_WEEK, DUE_THIS_MONTH].map(
     (element) => (element.classList = "time_periods")
   );
-  ADD_GROUP_PLUS_ICON.classList = "fas fa-plus-circle";
 
   DUE_HEADING.innerText = "Due";
   DUE_TODAY.innerText = "Today";
   DUE_THIS_WEEK.innerText = "Week";
   DUE_THIS_MONTH.innerText = "Month";
   GROUP_HEADING.innerText = "Groups";
-  ADD_GROUP_BUTTON.innerText = "group";
 
   document.body.append(NAV_CONTAINER);
   NAV_CONTAINER.append(DUE_CONTAINER);
@@ -84,8 +91,7 @@ const NAV_BAR = () => {
   NAV_CONTAINER.append(GROUP_CONTAINER);
   GROUP_CONTAINER.append(GROUP_HEADING);
   GROUP_CONTAINER.append(GROUP_LIST);
-  GROUP_CONTAINER.append(ADD_GROUP_BUTTON);
-  ADD_GROUP_BUTTON.prepend(ADD_GROUP_PLUS_ICON);
+  ADD_GROUP_BUTTON();
 };
 
 const RENDER_NAV_BAR_GROUPS = () => {
@@ -100,4 +106,29 @@ const RENDER_NAV_BAR_GROUPS = () => {
   }
 };
 
-export { HEADER, META_DATA, NAV_BAR, MENU_BUTTON, RENDER_NAV_BAR_GROUPS };
+const ADD_GROUP_INPUT_HANDLER = () => {
+  const GROUP_CONTAINER = document.getElementById("group_container");
+  const FORM = document.createElement("form");
+  const INPUT = document.createElement("input");
+  const SUBMIT = document.createElement("i");
+
+  FORM.id = "add_group_form";
+  INPUT.id = "add_group_input";
+  SUBMIT.classList = "fas fa-sign-in-alt";
+  SUBMIT.id = "submit_group_icon";
+
+  GROUP_CONTAINER.append(FORM);
+  FORM.append(INPUT);
+  FORM.append(SUBMIT);
+
+  document.getElementById("add_group").remove();
+};
+
+export {
+  HEADER,
+  META_DATA,
+  NAV_BAR,
+  MENU_BUTTON,
+  RENDER_NAV_BAR_GROUPS,
+  ADD_GROUP_INPUT_HANDLER,
+};

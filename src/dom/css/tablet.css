@@ -14,8 +14,8 @@
     top: var(--top);
     left: 0;
     height: calc(100vh - var(--top));
-    min-height: 650px;
-    width: 10em;
+    min-height: 700px;
+    width: 15em;
   }
 
   #due_container {
@@ -53,7 +53,7 @@
     flex-direction: column;
     overflow-y: auto;
     height: 10em;
-    width: 10em;
+    width: 15em;
   }
 
   .nav_bar_group {
@@ -66,10 +66,10 @@
   }
 
   #add_group {
-    margin-top: 1em;
+    /* margin-top: 1em; */
     background-color: black;
     color: var(--green);
-    font-size: 0.95em;
+    font-size: 1.15em;
     padding: 0.55em;
     width: 10em;
   }
@@ -81,5 +81,32 @@
 
   #add_group_plus_sign {
     font-size: 1.5em;
+  }
+
+  #add_group_form {
+    width: 10em;
+    margin: auto;
+    padding: 0.75em;
+    border: 1px solid black;
+    border-radius: 1.5em;
+    /* margin-top: 0.2em; */
+    background-color: black;
+  }
+
+  #add_group_input {
+    font-size: 1.2em;
+    width: 6.5em;
+    background-color: var(--green);
+    border: none;
+  }
+
+  input:focus {
+    outline: none;
+  }
+
+  #submit_group_icon {
+    cursor: grab;
+    font-size: 1.5em;
+    color: var(--green);
   }
 }
