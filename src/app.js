@@ -1,5 +1,12 @@
 let groups = {};
 
+if (window.localStorage.length !== 0) {
+  const LOCAL_STORAGE_GROUPS = JSON.parse(
+    window.localStorage.getItem("groups")
+  );
+  groups = LOCAL_STORAGE_GROUPS;
+}
+
 const Task = class {
   constructor(label = "", priority = "low", due_date = "", notes = "") {
     this.label = label;
@@ -10,4 +17,4 @@ const Task = class {
   }
 };
 
-export { groups };
+export { groups, Task };

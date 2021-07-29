@@ -5,8 +5,8 @@ module.exports = {
   mode: "development",
   entry: {
     app: "./src/app.js",
-    dom_loader: "./src/dom_loader.js",
-    default_groups: "./src/default_groups.js",
+    dom_loader: "./src/dom/dom_loader.js",
+    default_groups: "./src/helpers/default_groups.js",
   },
   devtool: "inline-source-map",
   devServer: {

@@ -82,6 +82,13 @@ const NAV_BAR = () => {
 
 const RENDER_NAV_BAR_GROUPS = () => {
   const GROUPS_CONTAINER = document.getElementById("task_group_container");
+  for (let prop in groups) {
+    const GROUP = document.createElement("li");
+
+    GROUP.innerText = prop;
+
+    GROUPS_CONTAINER.append(GROUP);
+  }
 };
 
 export { HEADER, META_DATA, NAV_BAR, MENU_BUTTON, RENDER_NAV_BAR_GROUPS };
