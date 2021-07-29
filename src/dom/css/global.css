@@ -26,6 +26,10 @@ h1 {
   display: none;
 }
 
+#due_container {
+  list-style: inside;
+}
+
 #due_today {
   background-color: rgb(35, 191, 136);
 }
@@ -36,6 +40,10 @@ h1 {
 
 #due_this_month {
   background-color: rgb(35, 171, 201);
+}
+
+#task_group_container {
+  list-style: inside;
 }
 
 #add_group {
