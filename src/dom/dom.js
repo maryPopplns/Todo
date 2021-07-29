@@ -1,4 +1,5 @@
 import { groups } from "../app.js";
+import { ATTACH_DELETE_GROUP_LISTENER } from "./event_listeners.js";
 
 const META_DATA = () => {
   const FONT_AWESOME = document.createElement("link");
@@ -36,19 +37,6 @@ const HEADER = () => {
 
   document.body.append(HEADER_CONTAINER);
   HEADER_CONTAINER.append(NAV_BAR_TEXT);
-};
-
-const ADD_GROUP_BUTTON = () => {
-  const ADD_GROUP_BUTTON = document.createElement("button");
-  const ADD_GROUP_PLUS_ICON = document.createElement("i");
-
-  ADD_GROUP_BUTTON.id = "add_group";
-  ADD_GROUP_BUTTON.innerText = "group";
-  ADD_GROUP_PLUS_ICON.id = "add_group_plus_sign";
-  ADD_GROUP_PLUS_ICON.classList = "fas fa-plus-circle";
-
-  document.getElementById("group_container").append(ADD_GROUP_BUTTON);
-  ADD_GROUP_BUTTON.prepend(ADD_GROUP_PLUS_ICON);
 };
 
 const NAV_BAR = () => {
@@ -91,13 +79,26 @@ const NAV_BAR = () => {
   NAV_CONTAINER.append(GROUP_CONTAINER);
   GROUP_CONTAINER.append(GROUP_HEADING);
   GROUP_CONTAINER.append(GROUP_LIST);
-  ADD_GROUP_BUTTON();
+
+  const ADD_GROUP_BUTTON = (() => {
+    const ADD_GROUP_BUTTON = document.createElement("button");
+    const ADD_GROUP_PLUS_ICON = document.createElement("i");
+
+    ADD_GROUP_BUTTON.id = "add_group";
+    ADD_GROUP_BUTTON.innerText = "group";
+    ADD_GROUP_PLUS_ICON.id = "add_group_plus_sign";
+    ADD_GROUP_PLUS_ICON.classList = "fas fa-plus-circle";
+
+    document.getElementById("group_container").append(ADD_GROUP_BUTTON);
+    ADD_GROUP_BUTTON.prepend(ADD_GROUP_PLUS_ICON);
+  })();
 };
 
 const RENDER_NAV_BAR_GROUPS = () => {
-  [...document.getElementById("task_group_container").children].map((node) =>
-    node.remove()
-  );
+  const REMOVE_ALL_GROUPS = [
+    ...document.getElementById("task_group_container").children,
+  ].map((node) => node.remove());
+
   const GROUPS_CONTAINER = document.getElementById("task_group_container");
   for (let prop in groups) {
     const GROUP = document.createElement("li");
@@ -106,9 +107,11 @@ const RENDER_NAV_BAR_GROUPS = () => {
     GROUP.setAttribute("data-group-container", prop);
     GROUP.classList = "nav_bar_group";
     GROUP.innerText = prop;
-    TRASH.classList = "fa fa-trash";
+    TRASH.classList = "delete_group fa fa-trash";
     TRASH.setAttribute("data-group", prop);
     TRASH.setAttribute("aria-hidden", "true");
+
+    ATTACH_DELETE_GROUP_LISTENER(TRASH);
 
     GROUPS_CONTAINER.append(GROUP);
     GROUP.append(TRASH);

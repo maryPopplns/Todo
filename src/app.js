@@ -7,6 +7,8 @@ if (window.localStorage.length !== 0) {
   groups = LOCAL_STORAGE_GROUPS;
 }
 
+// window.localStorage.clear();
+
 const SET_STORAGE = () => {
   window.localStorage.clear();
   window.localStorage.setItem("groups", JSON.stringify(groups));

@@ -65,4 +65,29 @@ const EVENT_LISTENERS = () => {
   })();
 };
 
-export { EVENT_LISTENERS };
+const ATTACH_DELETE_GROUP_LISTENER = (input_element) => {
+  input_element.addEventListener("mouseenter", (event) => {
+    const TARGET_DATA_GROUP = event.target.getAttribute("data-group");
+    const GROUP_CONTAINER = document.querySelector(
+      `[data-group-container=${TARGET_DATA_GROUP}]`
+    );
+    GROUP_CONTAINER.style.backgroundColor = "#b52828";
+  });
+
+  input_element.addEventListener("mouseleave", (event) => {
+    const TARGET_DATA_GROUP = event.target.getAttribute("data-group");
+    const GROUP_CONTAINER = document.querySelector(
+      `[data-group-container=${TARGET_DATA_GROUP}]`
+    );
+    GROUP_CONTAINER.style.backgroundColor = "#28bda7";
+  });
+
+  input_element.addEventListener("click", (event) => {
+    const TARGET_DATA_GROUP = event.target.getAttribute("data-group");
+    delete groups[TARGET_DATA_GROUP];
+    RENDER_NAV_BAR_GROUPS();
+    SET_STORAGE();
+  });
+};
+
+export { EVENT_LISTENERS, ATTACH_DELETE_GROUP_LISTENER };

@@ -90,6 +90,10 @@ nav {
   border-bottom: 1px solid black;
 }
 
+i[data-group] {
+  text-indent: 0;
+}
+
 #add_group {
   margin: auto;
   border: 2px solid black;
