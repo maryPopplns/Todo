@@ -47,6 +47,11 @@ h1 {
   cursor: grab;
 }
 
+.time_periods:hover {
+  border-top: 1px solid black;
+  border-bottom: 1px solid black;
+}
+
 #due_today {
   background-color: rgb(35, 191, 136);
 }
@@ -68,9 +73,13 @@ nav {
 }
 
 .nav_bar_group {
-  border: 1px solid rgb(35, 171, 201);
   cursor: grab;
   background-color: rgb(40, 189, 167);
+}
+
+.nav_bar_group:hover {
+  border-top: 1px solid black;
+  border-bottom: 1px solid black;
 }
 
 #add_group {

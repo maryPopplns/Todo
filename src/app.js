@@ -7,6 +7,11 @@ if (window.localStorage.length !== 0) {
   groups = LOCAL_STORAGE_GROUPS;
 }
 
+const SET_STORAGE = () => {
+  window.localStorage.clear();
+  window.localStorage.setItem("groups", JSON.stringify(groups));
+};
+
 const Task = class {
   constructor(label = "", priority = "low", due_date = "", notes = "") {
     this.label = label;
@@ -17,4 +22,4 @@ const Task = class {
   }
 };
 
-export { groups, Task };
+export { groups, SET_STORAGE, Task };

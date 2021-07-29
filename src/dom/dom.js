@@ -95,6 +95,9 @@ const NAV_BAR = () => {
 };
 
 const RENDER_NAV_BAR_GROUPS = () => {
+  [...document.getElementById("task_group_container").children].map((node) =>
+    node.remove()
+  );
   const GROUPS_CONTAINER = document.getElementById("task_group_container");
   for (let prop in groups) {
     const GROUP = document.createElement("li");
