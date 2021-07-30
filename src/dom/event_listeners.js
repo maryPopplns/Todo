@@ -100,6 +100,7 @@ const ATTACH_RENDER_GROUP_LISTENER = (input_element) => {
     const TARGET_DATA_GROUP_TASKS =
       groups[event.target.getAttribute("data-group-text")];
     console.log(TARGET_DATA_GROUP_TASKS);
+    // window.localStorage.clear();
   });
 };
 

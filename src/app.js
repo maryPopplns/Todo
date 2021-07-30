@@ -1,3 +1,5 @@
+import { v4 as uuid } from "uuid";
+
 let groups = {};
 
 if (window.localStorage.length !== 0) {
@@ -6,6 +8,8 @@ if (window.localStorage.length !== 0) {
   );
   groups = LOCAL_STORAGE_GROUPS;
 }
+
+// window.localStorage.clear();
 
 const SET_STORAGE = () => {
   window.localStorage.clear();
@@ -18,7 +22,7 @@ const Task = class {
     this.priority = priority;
     this.due_date = due_date;
     this.notes = notes;
-    this.date_created = new Date().getTime();
+    this.id = uuid();
   }
 };
 
