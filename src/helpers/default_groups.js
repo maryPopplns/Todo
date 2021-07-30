@@ -2,41 +2,29 @@ import { groups, Task } from "../app.js";
 import { RENDER_NAV_BAR_GROUPS } from "../dom/dom.js";
 
 if (window.localStorage.length === 0) {
-  // <-school->
-  const DEFAULT_SCHOOL_GROUP = (() => {
-    const TASKS = ["math", "science", "history"];
-    groups.school = [];
-    for (let i = 0; i < TASKS.length; i++) {
-      groups.school.push(new Task(TASKS[i]));
-    }
-  })();
+  const SCHOOL = ["math", "science", "history"];
+  const GYM = ["chest", "back", "legs"];
+  const CODING = ["git", "javascript", "python"];
+  const GROCERIES = ["apples", "bananas", "milk"];
+  const MOVIES = ["fight club", "star wars", "jaws"];
+  const CANDY = ["chocolate", "snickers", "sour patch kids"];
+  const DISTRO = ["ubuntu", "debian", "arch"];
 
-  // <-gym->
-  const DEFAULT_GYM_GROUP = (() => {
-    const TASKS = ["chest", "back", "legs"];
-    groups.gym = [];
-    for (let i = 0; i < TASKS.length; i++) {
-      groups.gym.push(new Task(TASKS[i]));
+  const DEFAULT_ITERATOR = (name, tasks) => {
+    groups[name] = [];
+    for (let i = 0; i < 3; i++) {
+      groups[name].push(new Task(tasks[i]));
     }
-  })();
+  };
+  DEFAULT_ITERATOR("school", SCHOOL);
+  DEFAULT_ITERATOR("gym", GYM);
+  DEFAULT_ITERATOR("coding", CODING);
+  DEFAULT_ITERATOR("groceries", GROCERIES);
+  DEFAULT_ITERATOR("movies", MOVIES);
+  DEFAULT_ITERATOR("candy", CANDY);
+  DEFAULT_ITERATOR("distro", DISTRO);
 
-  // <-coding->
-  const DEFAULT_CODING_GROUP = (() => {
-    const TASKS = ["git", "javascript", "python"];
-    groups.coding = [];
-    for (let i = 0; i < TASKS.length; i++) {
-      groups.coding.push(new Task(TASKS[i]));
-    }
-  })();
-
-  // <-groceries->
-  const DEFAULT_GROCERIES_GROUP = (() => {
-    const TASKS = ["apples", "bananas", "milk"];
-    groups.groceries = [];
-    for (let i = 0; i < TASKS.length; i++) {
-      groups.groceries.push(new Task(TASKS[i]));
-    }
-  })();
+  window.localStorage.clear();
 
   RENDER_NAV_BAR_GROUPS();
   window.localStorage.setItem("groups", JSON.stringify(groups));
