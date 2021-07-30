@@ -43,6 +43,7 @@ const HEADER = () => {
 };
 
 const NAV_BAR = () => {
+  const MAIN = document.createElement("main");
   const NAV_CONTAINER = document.createElement("nav");
   const DUE_CONTAINER = document.createElement("ol");
   const DUE_HEADING = document.createElement("h2");
@@ -73,7 +74,8 @@ const NAV_BAR = () => {
   DUE_THIS_MONTH.innerText = "Month";
   GROUP_HEADING.innerText = "Groups";
 
-  document.body.append(NAV_CONTAINER);
+  document.body.append(MAIN);
+  MAIN.append(NAV_CONTAINER);
   NAV_CONTAINER.append(DUE_CONTAINER);
   DUE_CONTAINER.append(DUE_HEADING);
   DUE_CONTAINER.append(DUE_TODAY);
@@ -146,6 +148,18 @@ const ADD_GROUP_INPUT = () => {
   FORM.append(SUBMIT);
 };
 
+const RENDER_TASK = (task, tasks_container) => {
+  const TASK_CONTAINER = document.createElement("div");
+
+  TASK_CONTAINER.classList = "task";
+
+  tasks_container.append(TASK_CONTAINER);
+};
+
+const REMOVE_CURRENT_GROUP = () => {
+  console.log("remove");
+};
+
 export {
   HEADER,
   META_DATA,
@@ -153,4 +167,6 @@ export {
   MENU_BUTTON,
   RENDER_NAV_BAR_GROUPS,
   ADD_GROUP_INPUT,
+  RENDER_TASK,
+  REMOVE_CURRENT_GROUP,
 };

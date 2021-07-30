@@ -1,4 +1,9 @@
-import { ADD_GROUP_INPUT_HANDLER, RENDER_NAV_BAR_GROUPS } from "./dom.js";
+import {
+  ADD_GROUP_INPUT_HANDLER,
+  REMOVE_CURRENT_GROUP,
+  RENDER_NAV_BAR_GROUPS,
+  RENDER_TASK,
+} from "./dom.js";
 import { groups, SET_STORAGE } from "../app.js";
 
 const EVENT_LISTENERS = () => {
@@ -97,9 +102,19 @@ const ATTACH_DELETE_GROUP_LISTENER = (input_element) => {
 
 const ATTACH_RENDER_GROUP_LISTENER = (input_element) => {
   input_element.addEventListener("click", (event) => {
-    const TARGET_DATA_GROUP_TASKS =
-      groups[event.target.getAttribute("data-group-text")];
-    console.log(TARGET_DATA_GROUP_TASKS);
+    REMOVE_CURRENT_GROUP();
+
+    const GROUP_NAME = event.target.getAttribute("data-group-text");
+    const TASKS_CONTAINER = document.createElement("div");
+
+    const TASKS = groups[GROUP_NAME].map((task) => {
+      RENDER_TASK(task, TASKS_CONTAINER);
+    });
+
+    TASKS_CONTAINER.classList = "tasks_container";
+    TASKS_CONTAINER.setAttribute("data-group-tasks", GROUP_NAME);
+
+    document.getElementsByTagName("main")[0].append(TASKS_CONTAINER);
   });
 };
 

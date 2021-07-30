@@ -1,25 +1,26 @@
 :root {
   --green: rgb(35, 179, 129);
-  --top: 6em;
 }
 
 @media (min-width: 768px) {
+  main {
+    display: flex;
+  }
+
   h1 {
     font-size: 5em;
   }
 
   #nav_container {
     background-color: var(--green);
-    position: absolute;
-    top: var(--top);
-    left: 0;
-    height: calc(100vh - var(--top));
+    position: relative;
+    height: calc(100vh - 125px);
     min-height: 700px;
     width: 15em;
   }
 
   #due_container {
-    margin-top: 1em;
+    padding-top: 1em;
     display: flex;
     flex-direction: column;
   }
@@ -119,5 +120,22 @@
     cursor: grab;
     font-size: 1em;
     color: rgb(181, 40, 40);
+  }
+
+  .tasks_container {
+    display: flex;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    height: calc(100vh - 125px);
+    min-height: 700px;
+    width: calc(100vw - 15em);
+    overflow: auto;
+  }
+
+  .task {
+    margin: 1em;
+    border: 1px solid white;
+    width: 5em;
+    height: 5em;
   }
 }

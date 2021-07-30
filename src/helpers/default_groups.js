@@ -41,10 +41,10 @@ if (window.localStorage.length === 0) {
   DEFAULT_ITERATOR("candy", CANDY);
   DEFAULT_ITERATOR("distro", DISTRO);
 
-  window.localStorage.clear();
-
   RENDER_NAV_BAR_GROUPS();
   window.localStorage.setItem("groups", JSON.stringify(groups));
+
+  console.log(groups);
 } else {
   RENDER_NAV_BAR_GROUPS();
 }
