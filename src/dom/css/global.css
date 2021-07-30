@@ -96,6 +96,7 @@ i[data-group] {
 }
 
 #add_group {
+  cursor: grab;
   margin: auto;
   border: 2px solid black;
   font-family: "Libre Franklin", sans-serif;
