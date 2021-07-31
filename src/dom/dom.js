@@ -169,11 +169,19 @@ const RENDER_ADD_TASK_BUTTON = (group_name, task_container) => {
   const BUTTON = document.createElement("div");
   const PLUS_ICON = document.createElement("i");
 
+  BUTTON.setAttribute("data-add-task", group_name);
   BUTTON.classList = "add_task_button";
   PLUS_ICON.classList = "fas fa-plus add_task_icon";
 
   task_container.append(BUTTON);
   BUTTON.append(PLUS_ICON);
+
+  return BUTTON;
+};
+
+const RENDER_ADD_TASK_FORM = () => {
+  const BLURRY_BACKGROUND = (document.body.style.filter = "blur(.75em)");
+  const ADD_TASK_FORM = document.createElement("");
 };
 
 export {
@@ -186,4 +194,5 @@ export {
   RENDER_TASK,
   REMOVE_CURRENT_GROUP,
   RENDER_ADD_TASK_BUTTON,
+  RENDER_ADD_TASK_FORM,
 };

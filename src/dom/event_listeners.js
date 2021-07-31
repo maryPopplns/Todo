@@ -4,6 +4,7 @@ import {
   RENDER_NAV_BAR_GROUPS,
   RENDER_TASK,
   RENDER_ADD_TASK_BUTTON,
+  RENDER_ADD_TASK_FORM,
 } from "./dom.js";
 import { groups, SET_STORAGE } from "../app.js";
 
@@ -101,6 +102,12 @@ const ATTACH_DELETE_GROUP_LISTENER = (input_element) => {
   });
 };
 
+const ADD_TASK = (event) => {
+  RENDER_ADD_TASK_FORM();
+  const GROUP_NAME = event.currentTarget.getAttribute("data-add-task");
+  const TASK_LIST = groups[GROUP_NAME];
+};
+
 const ATTACH_RENDER_GROUP_LISTENER = (input_element) => {
   input_element.addEventListener("click", (event) => {
     REMOVE_CURRENT_GROUP();
@@ -108,7 +115,8 @@ const ATTACH_RENDER_GROUP_LISTENER = (input_element) => {
     const GROUP_NAME = event.target.getAttribute("data-group-text");
     const TASKS_CONTAINER = document.createElement("div");
 
-    RENDER_ADD_TASK_BUTTON(GROUP_NAME, TASKS_CONTAINER);
+    const ADD_TASK_ICON = RENDER_ADD_TASK_BUTTON(GROUP_NAME, TASKS_CONTAINER);
+    ADD_TASK_ICON.addEventListener("click", ADD_TASK);
 
     const TASKS = groups[GROUP_NAME].map((task) => {
       RENDER_TASK(task, TASKS_CONTAINER);
