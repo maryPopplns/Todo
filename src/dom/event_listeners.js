@@ -23,9 +23,13 @@ const EVENT_LISTENERS = () => {
     const ADD_BUTTON = document.getElementById("add_group");
 
     ADD_BUTTON.addEventListener("click", () => {
-      document.getElementById("add_group").style.display = "none";
-      document.getElementById("add_group_form").style.display = "flex";
-      document.getElementById("add_group_input").focus();
+      const CURRRENT_CONTAINER = document.getElementById("task_form_container");
+
+      if (CURRRENT_CONTAINER === null) {
+        document.getElementById("add_group").style.display = "none";
+        document.getElementById("add_group_form").style.display = "flex";
+        document.getElementById("add_group_input").focus();
+      }
     });
   })();
 

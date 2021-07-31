@@ -183,8 +183,8 @@ const RENDER_ADD_TASK_FORM = () => {
   const CURRRENT_CONTAINER = document.getElementById("task_form_container");
 
   if (CURRRENT_CONTAINER === null) {
-    document.getElementsByTagName("header")[0].style.filter = "blur(.25em)";
-    document.getElementsByTagName("main")[0].style.filter = "blur(.25em)";
+    document.getElementsByTagName("header")[0].style.filter = "blur(.4em)";
+    document.getElementsByTagName("main")[0].style.filter = "blur(.4em)";
 
     const TASK_FORM_CONTAINER = document.createElement("div");
     const TASK_FORM = document.createElement("form");
