@@ -180,8 +180,14 @@ const RENDER_ADD_TASK_BUTTON = (group_name, task_container) => {
 };
 
 const RENDER_ADD_TASK_FORM = () => {
-  const BLURRY_BACKGROUND = (document.body.style.filter = "blur(.75em)");
-  const ADD_TASK_FORM = document.createElement("");
+  // const BLURRY_BACKGROUND = (document.body.style.filter = "blur(.5em)");
+
+  const TASK_FORM_CONTAINER = document.createElement("div");
+  const TASK_FORM = document.createElement("form");
+
+  TASK_FORM_CONTAINER.id = "task_form_container";
+
+  document.body.append(TASK_FORM_CONTAINER);
 };
 
 export {
