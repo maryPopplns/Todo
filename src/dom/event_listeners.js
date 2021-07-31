@@ -110,22 +110,26 @@ const ADD_TASK = (event) => {
 
 const ATTACH_RENDER_GROUP_LISTENER = (input_element) => {
   input_element.addEventListener("click", (event) => {
-    REMOVE_CURRENT_GROUP();
+    const CURRRENT_CONTAINER = document.getElementById("task_form_container");
 
-    const GROUP_NAME = event.target.getAttribute("data-group-text");
-    const TASKS_CONTAINER = document.createElement("div");
+    if (CURRRENT_CONTAINER === null) {
+      REMOVE_CURRENT_GROUP();
 
-    const ADD_TASK_ICON = RENDER_ADD_TASK_BUTTON(GROUP_NAME, TASKS_CONTAINER);
-    ADD_TASK_ICON.addEventListener("click", ADD_TASK);
+      const GROUP_NAME = event.target.getAttribute("data-group-text");
+      const TASKS_CONTAINER = document.createElement("div");
 
-    const TASKS = groups[GROUP_NAME].map((task) => {
-      RENDER_TASK(task, TASKS_CONTAINER);
-    });
+      const ADD_TASK_ICON = RENDER_ADD_TASK_BUTTON(GROUP_NAME, TASKS_CONTAINER);
+      ADD_TASK_ICON.addEventListener("click", ADD_TASK);
 
-    TASKS_CONTAINER.classList = "tasks_container";
-    TASKS_CONTAINER.setAttribute("data-group-tasks", GROUP_NAME);
+      const TASKS = groups[GROUP_NAME].map((task) => {
+        RENDER_TASK(task, TASKS_CONTAINER);
+      });
 
-    document.getElementsByTagName("main")[0].append(TASKS_CONTAINER);
+      TASKS_CONTAINER.classList = "tasks_container";
+      TASKS_CONTAINER.setAttribute("data-group-tasks", GROUP_NAME);
+
+      document.getElementsByTagName("main")[0].append(TASKS_CONTAINER);
+    }
   });
 };
 

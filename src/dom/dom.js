@@ -180,14 +180,21 @@ const RENDER_ADD_TASK_BUTTON = (group_name, task_container) => {
 };
 
 const RENDER_ADD_TASK_FORM = () => {
-  // const BLURRY_BACKGROUND = (document.body.style.filter = "blur(.5em)");
+  const CURRRENT_CONTAINER = document.getElementById("task_form_container");
 
-  const TASK_FORM_CONTAINER = document.createElement("div");
-  const TASK_FORM = document.createElement("form");
+  if (CURRRENT_CONTAINER === null) {
+    document.getElementsByTagName("header")[0].style.filter = "blur(.25em)";
+    document.getElementsByTagName("main")[0].style.filter = "blur(.25em)";
 
-  TASK_FORM_CONTAINER.id = "task_form_container";
+    const TASK_FORM_CONTAINER = document.createElement("div");
+    const TASK_FORM = document.createElement("form");
 
-  document.body.append(TASK_FORM_CONTAINER);
+    TASK_FORM_CONTAINER.id = "task_form_container";
+    TASK_FORM.id = "add_task_form";
+
+    document.body.append(TASK_FORM_CONTAINER);
+    TASK_FORM_CONTAINER.append(TASK_FORM);
+  }
 };
 
 export {
