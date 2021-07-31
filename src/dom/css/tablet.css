@@ -138,4 +138,22 @@
     width: 5em;
     height: 5em;
   }
+
+  .add_task_button {
+    margin: 1em;
+    border: 1px solid white;
+    width: 5em;
+    height: 5em;
+  }
+  .add_task_button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .add_task_icon {
+    cursor: grab;
+    color: var(--green);
+    font-size: 5em;
+  }
 }

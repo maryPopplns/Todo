@@ -2,7 +2,6 @@
   --green: rgb(35, 179, 129);
 }
 
-/* <-portrait-> */
 @media (min-width: 320px) and (max-width: 767px) {
   h1 {
     font-size: 2em;
@@ -21,6 +20,13 @@
     align-items: center;
   }
 
+  #due_heading {
+    color: var(--green);
+    font-size: 1.5em;
+    text-decoration: none;
+    margin-bottom: 1em;
+  }
+
   #hamburger_menu_button {
     background: transparent;
     border: none;
@@ -36,13 +42,21 @@
   }
 
   .time_periods {
-    width: 90vw;
+    width: 95vw;
     text-align: center;
-    padding: 1em;
+    padding: 0.5em;
   }
 
   #group_container {
-    margin-top: 8em;
+    margin-top: 2em;
+  }
+
+  #group_heading {
+    text-align: center;
+    color: var(--green);
+    font-size: 1.5em;
+    text-decoration: none;
+    margin-bottom: 1em;
   }
 
   #add_group {

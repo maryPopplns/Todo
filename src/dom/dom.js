@@ -157,7 +157,23 @@ const RENDER_TASK = (task, tasks_container) => {
 };
 
 const REMOVE_CURRENT_GROUP = () => {
-  console.log("remove");
+  const TASK_CONTAINER = [
+    ...document.getElementsByClassName("tasks_container"),
+  ];
+  if (TASK_CONTAINER.length !== 0) {
+    TASK_CONTAINER[0].remove();
+  }
+};
+
+const RENDER_ADD_TASK_BUTTON = (group_name, task_container) => {
+  const BUTTON = document.createElement("div");
+  const PLUS_ICON = document.createElement("i");
+
+  BUTTON.classList = "add_task_button";
+  PLUS_ICON.classList = "fas fa-plus add_task_icon";
+
+  task_container.append(BUTTON);
+  BUTTON.append(PLUS_ICON);
 };
 
 export {
@@ -169,4 +185,5 @@ export {
   ADD_GROUP_INPUT,
   RENDER_TASK,
   REMOVE_CURRENT_GROUP,
+  RENDER_ADD_TASK_BUTTON,
 };

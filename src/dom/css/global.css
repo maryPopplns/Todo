@@ -49,6 +49,8 @@ h1 {
 
 .time_periods {
   cursor: grab;
+  border-top: 1px solid transparent;
+  border-bottom: 1px solid transparent;
 }
 
 .time_periods:hover {

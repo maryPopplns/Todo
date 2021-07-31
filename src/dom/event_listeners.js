@@ -3,6 +3,7 @@ import {
   REMOVE_CURRENT_GROUP,
   RENDER_NAV_BAR_GROUPS,
   RENDER_TASK,
+  RENDER_ADD_TASK_BUTTON,
 } from "./dom.js";
 import { groups, SET_STORAGE } from "../app.js";
 
@@ -106,6 +107,8 @@ const ATTACH_RENDER_GROUP_LISTENER = (input_element) => {
 
     const GROUP_NAME = event.target.getAttribute("data-group-text");
     const TASKS_CONTAINER = document.createElement("div");
+
+    RENDER_ADD_TASK_BUTTON(GROUP_NAME, TASKS_CONTAINER);
 
     const TASKS = groups[GROUP_NAME].map((task) => {
       RENDER_TASK(task, TASKS_CONTAINER);

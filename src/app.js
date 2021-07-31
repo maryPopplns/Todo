@@ -9,7 +9,7 @@ if (window.localStorage.length !== 0) {
   groups = LOCAL_STORAGE_GROUPS;
 }
 
-window.localStorage.clear();
+// window.localStorage.clear();
 
 const SET_STORAGE = () => {
   window.localStorage.clear();
