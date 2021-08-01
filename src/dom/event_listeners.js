@@ -38,8 +38,12 @@ const EVENT_LISTENERS = () => {
     const CANCEL_BUTTON = document.getElementById("cancel_group_icon");
 
     CANCEL_BUTTON.addEventListener("click", () => {
-      document.getElementById("add_group").style.display = "flex";
-      document.getElementById("add_group_form").style.display = "none";
+      const CURRRENT_CONTAINER = document.getElementById("task_form_container");
+
+      if (CURRRENT_CONTAINER === null) {
+        document.getElementById("add_group").style.display = "flex";
+        document.getElementById("add_group_form").style.display = "none";
+      }
     });
   })();
 
@@ -47,17 +51,21 @@ const EVENT_LISTENERS = () => {
     const SUBMIT_BUTTON = document.getElementById("submit_group_icon");
 
     SUBMIT_BUTTON.addEventListener("click", () => {
-      const INPUT_TEXT = document.getElementById("add_group_input").value;
-      const INPUT_FIELD = document.getElementById("add_group_input");
-      if (INPUT_TEXT === "") {
-        INPUT_FIELD.style.backgroundColor = "rgb(181, 40, 40)";
-      } else {
-        groups[INPUT_TEXT] = [];
-        INPUT_FIELD.value = "";
-        RENDER_NAV_BAR_GROUPS();
-        document.getElementById("add_group").style.display = "flex";
-        document.getElementById("add_group_form").style.display = "none";
-        SET_STORAGE();
+      const CURRRENT_CONTAINER = document.getElementById("task_form_container");
+
+      if (CURRRENT_CONTAINER === null) {
+        const INPUT_TEXT = document.getElementById("add_group_input").value;
+        const INPUT_FIELD = document.getElementById("add_group_input");
+        if (INPUT_TEXT === "") {
+          INPUT_FIELD.style.backgroundColor = "rgb(181, 40, 40)";
+        } else {
+          groups[INPUT_TEXT] = [];
+          INPUT_FIELD.value = "";
+          RENDER_NAV_BAR_GROUPS();
+          document.getElementById("add_group").style.display = "flex";
+          document.getElementById("add_group_form").style.display = "none";
+          SET_STORAGE();
+        }
       }
     });
   })();
@@ -74,7 +82,7 @@ const EVENT_LISTENERS = () => {
         document.getElementById("submit_group_icon").style.visibility =
           "hidden";
       } else {
-        INPUT_FIELD.style.backgroundColor = "rgb(35, 179, 129)";
+        INPUT_FIELD.style.backgroundColor = "white";
         document.getElementById("submit_group_icon").style.visibility =
           "visible";
       }

@@ -105,3 +105,11 @@ i[data-group] {
 .fa-window-close {
   color: rgb(181, 40, 40);
 }
+
+#cancel_add_task_icon {
+  cursor: grab;
+}
+
+#apply_add_task_icon {
+  cursor: grab;
+}

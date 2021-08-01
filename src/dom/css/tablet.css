@@ -62,13 +62,13 @@
     padding: 0.25em;
   }
 
+  .nav_bar_group:hover {
+    text-indent: 2em;
+  }
+
   .individual_group_heading {
     width: 15em;
     font-size: 1em;
-  }
-
-  .nav_bar_group:hover {
-    text-indent: 2em;
   }
 
   #add_group {
@@ -102,7 +102,6 @@
     text-indent: 0.25em;
     font-size: 1.2em;
     width: 5.5em;
-    background-color: var(--green);
     border: none;
     border-radius: 0.125em;
   }
@@ -196,9 +195,18 @@
   }
 
   .task_input {
+    font-family: "Archivo Black", sans-serif;
     text-indent: 0.25em;
     font-size: 1em;
     width: 12em;
+  }
+
+  #priority_input {
+    outline: none;
+  }
+
+  ::-webkit-datetime-edit {
+    font-family: "Archivo Black", sans-serif;
   }
 
   #cancel_apply_container {

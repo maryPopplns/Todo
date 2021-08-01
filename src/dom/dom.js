@@ -191,7 +191,7 @@ const RENDER_ADD_TASK_FORM = () => {
     const TASK_FORM_CONTAINER = document.createElement("div");
     const TASK_FORM = document.createElement("form");
     const LABEL_INPUT = document.createElement("input");
-    const PRIORITY_INPUT = document.createElement("input");
+    const PRIORITY_INPUT = document.createElement("select");
     const DUE_DATE_INPUT = document.createElement("input");
     const NOTES_INPUT = document.createElement("input");
     const CANCEL_APPLY_CONTAINER = document.createElement("div");
@@ -204,17 +204,23 @@ const RENDER_ADD_TASK_FORM = () => {
       "due_date_input",
       "notes_input",
     ];
-    const INNERTEXT = ["* Label", "* Priority", "Due date", "Notes"];
+    const INNERTEXT = ["* Label", "Priority", "Due date", "Notes"];
+    const PRIORITY_OPTIONS = ["low", "medium", "high"];
 
     TASK_FORM_CONTAINER.id = "task_form_container";
     TASK_FORM.id = "add_task_form";
     for (let i = 0; i < 4; i++) {
       INPUTS[i].id = IDS[i];
       INPUTS[i].setAttribute("name", IDS[i]);
-      INPUTS[i].setAttribute("type", "text");
       INPUTS[i].classList = "task_input";
+      if (i !== 1) {
+        INPUTS[i].setAttribute("type", "text");
+      }
+      if (i === 2) {
+        INPUTS[i].setAttribute("type", "date");
+      }
     }
-    PRIORITY_INPUT.setAttribute("placeholder", "low / medium / high");
+    DUE_DATE_INPUT.setAttribute("placeholder", "ex: 2021/12/25");
     CANCEL_ADD_TASK.classList = "far fa-times-circle";
     CANCEL_ADD_TASK.id = "cancel_add_task_icon";
     APPLY_ADD_TASK.classList = "far fa-check-circle";
@@ -238,6 +244,12 @@ const RENDER_ADD_TASK_FORM = () => {
       TASK_FORM.append(INPUT_CONTAINER);
       INPUT_CONTAINER.append(LABEL);
       INPUT_CONTAINER.append(INPUTS[i]);
+    }
+    for (let i = 0; i < 3; i++) {
+      const OPTION = document.createElement("option");
+      OPTION.setAttribute("value", PRIORITY_OPTIONS[i]);
+      OPTION.innerText = PRIORITY_OPTIONS[i];
+      PRIORITY_INPUT.append(OPTION);
     }
     TASK_FORM.append(CANCEL_APPLY_CONTAINER);
     CANCEL_APPLY_CONTAINER.append(CANCEL_ADD_TASK);
