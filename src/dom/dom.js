@@ -246,6 +246,13 @@ const RENDER_ADD_TASK_FORM = () => {
   }
 };
 
+const REMOVE_ADD_TASK_FORM = () => {
+  const ADD_TASK_FORM = document.getElementById("task_form_container");
+  ADD_TASK_FORM.remove();
+  document.getElementsByTagName("header")[0].style.filter = "";
+  document.getElementsByTagName("main")[0].style.filter = "";
+};
+
 export {
   HEADER,
   META_DATA,
@@ -257,4 +264,5 @@ export {
   REMOVE_CURRENT_GROUP,
   RENDER_ADD_TASK_BUTTON,
   RENDER_ADD_TASK_FORM,
+  REMOVE_ADD_TASK_FORM,
 };

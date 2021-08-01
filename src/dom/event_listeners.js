@@ -5,6 +5,7 @@ import {
   RENDER_TASK,
   RENDER_ADD_TASK_BUTTON,
   RENDER_ADD_TASK_FORM,
+  REMOVE_ADD_TASK_FORM,
 } from "./dom.js";
 import { groups, SET_STORAGE } from "../app.js";
 
@@ -120,7 +121,7 @@ const ATTACH_RENDER_GROUP_LISTENER = (input_element) => {
       ADD_TASK_ICON.addEventListener("click", (event) => {
         RENDER_ADD_TASK_FORM();
         const GROUP_NAME = event.currentTarget.getAttribute("data-add-task");
-        console.log(GROUP_NAME);
+
         // const TASK_LIST = groups[GROUP_NAME];
       });
 
@@ -137,7 +138,7 @@ const ATTACH_RENDER_GROUP_LISTENER = (input_element) => {
 };
 
 const CANCEL_ADD_TASK_HANDLER = () => {
-  console.log("cancel");
+  REMOVE_ADD_TASK_FORM();
 };
 
 const APPLY_ADD_TASK_HANDLER = () => {
