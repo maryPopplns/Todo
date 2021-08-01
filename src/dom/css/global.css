@@ -49,13 +49,6 @@ h1 {
 
 .time_periods {
   cursor: grab;
-  border-top: 1px solid transparent;
-  border-bottom: 1px solid transparent;
-}
-
-.time_periods:hover {
-  border-top: 1px solid black;
-  border-bottom: 1px solid black;
 }
 
 #due_today {
@@ -79,18 +72,11 @@ nav {
 }
 
 .nav_bar_group {
-  border-top: 1px solid transparent;
-  border-bottom: 1px solid transparent;
   display: flex;
   justify-content: space-between;
   align-items: center;
   cursor: grab;
   background-color: rgb(40, 189, 167);
-}
-
-.nav_bar_group:hover {
-  border-top: 1px solid black;
-  border-bottom: 1px solid black;
 }
 
 i[data-group] {

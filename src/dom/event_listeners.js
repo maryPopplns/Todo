@@ -106,12 +106,6 @@ const ATTACH_DELETE_GROUP_LISTENER = (input_element) => {
   });
 };
 
-const ADD_TASK = (event) => {
-  RENDER_ADD_TASK_FORM();
-  const GROUP_NAME = event.currentTarget.getAttribute("data-add-task");
-  const TASK_LIST = groups[GROUP_NAME];
-};
-
 const ATTACH_RENDER_GROUP_LISTENER = (input_element) => {
   input_element.addEventListener("click", (event) => {
     const CURRRENT_CONTAINER = document.getElementById("task_form_container");
@@ -123,7 +117,12 @@ const ATTACH_RENDER_GROUP_LISTENER = (input_element) => {
       const TASKS_CONTAINER = document.createElement("div");
 
       const ADD_TASK_ICON = RENDER_ADD_TASK_BUTTON(GROUP_NAME, TASKS_CONTAINER);
-      ADD_TASK_ICON.addEventListener("click", ADD_TASK);
+      ADD_TASK_ICON.addEventListener("click", (event) => {
+        RENDER_ADD_TASK_FORM();
+        const GROUP_NAME = event.currentTarget.getAttribute("data-add-task");
+        console.log(GROUP_NAME);
+        // const TASK_LIST = groups[GROUP_NAME];
+      });
 
       const TASKS = groups[GROUP_NAME].map((task) => {
         RENDER_TASK(task, TASKS_CONTAINER);
@@ -137,8 +136,18 @@ const ATTACH_RENDER_GROUP_LISTENER = (input_element) => {
   });
 };
 
+const CANCEL_ADD_TASK_HANDLER = () => {
+  console.log("cancel");
+};
+
+const APPLY_ADD_TASK_HANDLER = () => {
+  console.log("apply");
+};
+
 export {
   EVENT_LISTENERS,
   ATTACH_DELETE_GROUP_LISTENER,
   ATTACH_RENDER_GROUP_LISTENER,
+  CANCEL_ADD_TASK_HANDLER,
+  APPLY_ADD_TASK_HANDLER,
 };

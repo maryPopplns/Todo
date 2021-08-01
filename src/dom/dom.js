@@ -2,6 +2,8 @@ import { groups } from "../app.js";
 import {
   ATTACH_DELETE_GROUP_LISTENER,
   ATTACH_RENDER_GROUP_LISTENER,
+  CANCEL_ADD_TASK_HANDLER,
+  APPLY_ADD_TASK_HANDLER,
 } from "./event_listeners.js";
 
 const META_DATA = () => {
@@ -188,12 +190,59 @@ const RENDER_ADD_TASK_FORM = () => {
 
     const TASK_FORM_CONTAINER = document.createElement("div");
     const TASK_FORM = document.createElement("form");
+    const LABEL_INPUT = document.createElement("input");
+    const PRIORITY_INPUT = document.createElement("input");
+    const DUE_DATE_INPUT = document.createElement("input");
+    const NOTES_INPUT = document.createElement("input");
+    const CANCEL_APPLY_CONTAINER = document.createElement("div");
+    const CANCEL_ADD_TASK = document.createElement("i");
+    const APPLY_ADD_TASK = document.createElement("i");
+    const INPUTS = [LABEL_INPUT, PRIORITY_INPUT, DUE_DATE_INPUT, NOTES_INPUT];
+    const IDS = [
+      "label_input",
+      "priority_input",
+      "due_date_input",
+      "notes_input",
+    ];
+    const INNERTEXT = ["* Label", "* Priority", "Due date", "Notes"];
 
     TASK_FORM_CONTAINER.id = "task_form_container";
     TASK_FORM.id = "add_task_form";
+    for (let i = 0; i < 4; i++) {
+      INPUTS[i].id = IDS[i];
+      INPUTS[i].setAttribute("name", IDS[i]);
+      INPUTS[i].setAttribute("type", "text");
+      INPUTS[i].classList = "task_input";
+    }
+    PRIORITY_INPUT.setAttribute("placeholder", "low / medium / high");
+    CANCEL_ADD_TASK.classList = "far fa-times-circle";
+    CANCEL_ADD_TASK.id = "cancel_add_task_icon";
+    APPLY_ADD_TASK.classList = "far fa-check-circle";
+    APPLY_ADD_TASK.id = "apply_add_task_icon";
+    CANCEL_APPLY_CONTAINER.id = "cancel_apply_container";
+
+    APPLY_ADD_TASK.addEventListener("click", APPLY_ADD_TASK_HANDLER);
+    CANCEL_ADD_TASK.addEventListener("click", CANCEL_ADD_TASK_HANDLER);
 
     document.body.append(TASK_FORM_CONTAINER);
     TASK_FORM_CONTAINER.append(TASK_FORM);
+    for (let i = 0; i < 4; i++) {
+      const INPUT_CONTAINER = document.createElement("div");
+      const LABEL = document.createElement("label");
+
+      INPUT_CONTAINER.classList = "task_input_container";
+      LABEL.setAttribute("for", IDS[i]);
+      LABEL.classList = "task_input_label";
+      LABEL.innerText = INNERTEXT[i];
+
+      TASK_FORM.append(INPUT_CONTAINER);
+      INPUT_CONTAINER.append(LABEL);
+      INPUT_CONTAINER.append(INPUTS[i]);
+    }
+    TASK_FORM.append(CANCEL_APPLY_CONTAINER);
+    CANCEL_APPLY_CONTAINER.append(CANCEL_ADD_TASK);
+    CANCEL_APPLY_CONTAINER.append(APPLY_ADD_TASK);
+    LABEL_INPUT.focus();
   }
 };
 
