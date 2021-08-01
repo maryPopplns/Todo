@@ -100,10 +100,14 @@ const ATTACH_DELETE_GROUP_LISTENER = (input_element) => {
   });
 
   input_element.addEventListener("click", (event) => {
-    const TARGET_DATA_GROUP = event.target.getAttribute("data-group");
-    delete groups[TARGET_DATA_GROUP];
-    RENDER_NAV_BAR_GROUPS();
-    SET_STORAGE();
+    const CURRRENT_CONTAINER = document.getElementById("task_form_container");
+
+    if (CURRRENT_CONTAINER === null) {
+      const TARGET_DATA_GROUP = event.target.getAttribute("data-group");
+      delete groups[TARGET_DATA_GROUP];
+      RENDER_NAV_BAR_GROUPS();
+      SET_STORAGE();
+    }
   });
 };
 
