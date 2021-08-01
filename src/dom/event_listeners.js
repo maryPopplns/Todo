@@ -7,7 +7,7 @@ import {
   RENDER_ADD_TASK_FORM,
   REMOVE_ADD_TASK_FORM,
 } from "./dom.js";
-import { groups, SET_STORAGE } from "../app.js";
+import { groups, Task, SET_STORAGE } from "../app.js";
 
 const EVENT_LISTENERS = () => {
   const HAMBURGER_MENU = (() => {
@@ -131,8 +131,8 @@ const ATTACH_RENDER_GROUP_LISTENER = (input_element) => {
 
       const ADD_TASK_ICON = RENDER_ADD_TASK_BUTTON(GROUP_NAME, TASKS_CONTAINER);
       ADD_TASK_ICON.addEventListener("click", (event) => {
-        RENDER_ADD_TASK_FORM();
         const GROUP_NAME = event.currentTarget.getAttribute("data-add-task");
+        RENDER_ADD_TASK_FORM(GROUP_NAME);
 
         // const TASK_LIST = groups[GROUP_NAME];
       });
@@ -149,18 +149,38 @@ const ATTACH_RENDER_GROUP_LISTENER = (input_element) => {
   });
 };
 
-const CANCEL_ADD_TASK_HANDLER = () => {
-  REMOVE_ADD_TASK_FORM();
+const CANCEL_ADD_TASK = (cancel_icon) => {
+  cancel_icon.addEventListener("click", () => {
+    REMOVE_ADD_TASK_FORM();
+  });
 };
 
-const APPLY_ADD_TASK_HANDLER = () => {
-  console.log("apply");
+const APPLY_ADD_TASK = (apply_icon) => {
+  apply_icon.addEventListener("click", () => {
+    const GROUP_NAME = document
+      .getElementById("task_form_container")
+      .getAttribute("data-group");
+    const LABEL_VALUE = document.getElementById("label_input").value;
+    const PRIORITY_VALUE = document.getElementById("priority_input").value;
+    const DUE_DATE_VALUE = document.getElementById("due_date_input").value;
+    const NOTES_VALUE = document.getElementById("notes_input").value;
+
+    const YEAR = DUE_DATE_VALUE.slice(0, 4);
+    const MONTH = DUE_DATE_VALUE.slice(5, 7);
+    const DAY = DUE_DATE_VALUE.slice(8, 10);
+    let due;
+    DUE_DATE_VALUE === "" ? (due = "") : (due = new Date(YEAR, MONTH, DAY));
+
+    const NEW_TASK = new Task(LABEL_VALUE, PRIORITY_VALUE, due, NOTES_VALUE);
+
+    console.log(NEW_TASK);
+  });
 };
 
 export {
   EVENT_LISTENERS,
   ATTACH_DELETE_GROUP_LISTENER,
   ATTACH_RENDER_GROUP_LISTENER,
-  CANCEL_ADD_TASK_HANDLER,
-  APPLY_ADD_TASK_HANDLER,
+  CANCEL_ADD_TASK,
+  APPLY_ADD_TASK,
 };

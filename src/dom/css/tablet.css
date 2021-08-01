@@ -202,7 +202,12 @@
   }
 
   #priority_input {
+    width: 12.35em;
     outline: none;
+  }
+
+  #due_date_input {
+    width: 12.1em;
   }
 
   ::-webkit-datetime-edit {

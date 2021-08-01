@@ -2,8 +2,8 @@ import { groups } from "../app.js";
 import {
   ATTACH_DELETE_GROUP_LISTENER,
   ATTACH_RENDER_GROUP_LISTENER,
-  CANCEL_ADD_TASK_HANDLER,
-  APPLY_ADD_TASK_HANDLER,
+  CANCEL_ADD_TASK,
+  APPLY_ADD_TASK,
 } from "./event_listeners.js";
 
 const META_DATA = () => {
@@ -181,7 +181,7 @@ const RENDER_ADD_TASK_BUTTON = (group_name, task_container) => {
   return BUTTON;
 };
 
-const RENDER_ADD_TASK_FORM = () => {
+const RENDER_ADD_TASK_FORM = (group_name) => {
   const CURRRENT_CONTAINER = document.getElementById("task_form_container");
 
   if (CURRRENT_CONTAINER === null) {
@@ -195,8 +195,8 @@ const RENDER_ADD_TASK_FORM = () => {
     const DUE_DATE_INPUT = document.createElement("input");
     const NOTES_INPUT = document.createElement("input");
     const CANCEL_APPLY_CONTAINER = document.createElement("div");
-    const CANCEL_ADD_TASK = document.createElement("i");
-    const APPLY_ADD_TASK = document.createElement("i");
+    const CANCEL_ADD_TASK_ICON = document.createElement("i");
+    const APPLY_ADD_TASK_ICON = document.createElement("i");
     const INPUTS = [LABEL_INPUT, PRIORITY_INPUT, DUE_DATE_INPUT, NOTES_INPUT];
     const IDS = [
       "label_input",
@@ -208,6 +208,7 @@ const RENDER_ADD_TASK_FORM = () => {
     const PRIORITY_OPTIONS = ["low", "medium", "high"];
 
     TASK_FORM_CONTAINER.id = "task_form_container";
+    TASK_FORM_CONTAINER.setAttribute("data-group", group_name);
     TASK_FORM.id = "add_task_form";
     for (let i = 0; i < 4; i++) {
       INPUTS[i].id = IDS[i];
@@ -220,15 +221,14 @@ const RENDER_ADD_TASK_FORM = () => {
         INPUTS[i].setAttribute("type", "date");
       }
     }
-    DUE_DATE_INPUT.setAttribute("placeholder", "ex: 2021/12/25");
-    CANCEL_ADD_TASK.classList = "far fa-times-circle";
-    CANCEL_ADD_TASK.id = "cancel_add_task_icon";
-    APPLY_ADD_TASK.classList = "far fa-check-circle";
-    APPLY_ADD_TASK.id = "apply_add_task_icon";
+    CANCEL_ADD_TASK_ICON.classList = "far fa-times-circle";
+    CANCEL_ADD_TASK_ICON.id = "cancel_add_task_icon";
+    APPLY_ADD_TASK_ICON.classList = "far fa-check-circle";
+    APPLY_ADD_TASK_ICON.id = "apply_add_task_icon";
     CANCEL_APPLY_CONTAINER.id = "cancel_apply_container";
 
-    APPLY_ADD_TASK.addEventListener("click", APPLY_ADD_TASK_HANDLER);
-    CANCEL_ADD_TASK.addEventListener("click", CANCEL_ADD_TASK_HANDLER);
+    APPLY_ADD_TASK(APPLY_ADD_TASK_ICON);
+    CANCEL_ADD_TASK(CANCEL_ADD_TASK_ICON);
 
     document.body.append(TASK_FORM_CONTAINER);
     TASK_FORM_CONTAINER.append(TASK_FORM);
@@ -252,8 +252,8 @@ const RENDER_ADD_TASK_FORM = () => {
       PRIORITY_INPUT.append(OPTION);
     }
     TASK_FORM.append(CANCEL_APPLY_CONTAINER);
-    CANCEL_APPLY_CONTAINER.append(CANCEL_ADD_TASK);
-    CANCEL_APPLY_CONTAINER.append(APPLY_ADD_TASK);
+    CANCEL_APPLY_CONTAINER.append(CANCEL_ADD_TASK_ICON);
+    CANCEL_APPLY_CONTAINER.append(APPLY_ADD_TASK_ICON);
     LABEL_INPUT.focus();
   }
 };
