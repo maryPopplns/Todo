@@ -133,8 +133,6 @@ const ATTACH_RENDER_GROUP_LISTENER = (input_element) => {
       ADD_TASK_ICON.addEventListener("click", (event) => {
         const GROUP_NAME = event.currentTarget.getAttribute("data-add-task");
         RENDER_ADD_TASK_FORM(GROUP_NAME);
-
-        // const TASK_LIST = groups[GROUP_NAME];
       });
 
       const TASKS = groups[GROUP_NAME].map((task) => {
@@ -145,6 +143,7 @@ const ATTACH_RENDER_GROUP_LISTENER = (input_element) => {
       TASKS_CONTAINER.setAttribute("data-group-tasks", GROUP_NAME);
 
       document.getElementsByTagName("main")[0].append(TASKS_CONTAINER);
+      document.getElementById("header").innerText = GROUP_NAME;
     }
   });
 };

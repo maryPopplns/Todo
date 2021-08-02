@@ -39,6 +39,7 @@ const HEADER = () => {
   const NAV_BAR_TEXT = document.createElement("h1");
 
   NAV_BAR_TEXT.innerText = "Task Master";
+  NAV_BAR_TEXT.id = "header";
 
   document.body.append(HEADER_CONTAINER);
   HEADER_CONTAINER.append(NAV_BAR_TEXT);
@@ -204,7 +205,7 @@ const RENDER_ADD_TASK_FORM = (group_name) => {
       "due_date_input",
       "notes_input",
     ];
-    const INNERTEXT = ["* Label", "Priority", "Due date", "Notes"];
+    const INNERTEXT = ["Label", "Priority", "Due date", "Notes"];
     const PRIORITY_OPTIONS = ["low", "medium", "high"];
 
     TASK_FORM_CONTAINER.id = "task_form_container";
