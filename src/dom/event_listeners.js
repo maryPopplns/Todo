@@ -171,6 +171,24 @@ const APPLY_ADD_TASK = (apply_icon) => {
   });
 };
 
+const ATTACH_DELETE_TASK_LISTENER = (icon) => {
+  icon.addEventListener("click", (event) => {
+    const TASK_ID = event.target.id;
+    let group;
+    for (let prop in groups) {
+      groups[prop].map((task) => {
+        if (task.id === TASK_ID) {
+          group = prop;
+        }
+      });
+      groups[prop] = groups[prop].filter((task) => task.id !== TASK_ID);
+    }
+    REMOVE_CURRENT_GROUP();
+    RENDER_GROUP(null, group);
+    SET_STORAGE();
+  });
+};
+
 export {
   EVENT_LISTENERS,
   ATTACH_DELETE_GROUP_LISTENER,
@@ -178,4 +196,5 @@ export {
   CANCEL_ADD_TASK,
   APPLY_ADD_TASK,
   ATTACH_ADD_TASK_LISTENER,
+  ATTACH_DELETE_TASK_LISTENER,
 };

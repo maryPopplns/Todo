@@ -73,6 +73,10 @@
     font-size: 1em;
   }
 
+  .delete_group {
+    margin-right: 0.25em;
+  }
+
   #add_group {
     /* margin-top: 1em; */
     background-color: black;
@@ -140,7 +144,6 @@
     justify-content: space-evenly;
     align-items: center;
     margin: 1em;
-    border: 2px solid #28bda7;
     width: 12em;
     height: 10em;
   }

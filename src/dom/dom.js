@@ -6,6 +6,7 @@ import {
   CANCEL_ADD_TASK,
   APPLY_ADD_TASK,
   ATTACH_ADD_TASK_LISTENER,
+  ATTACH_DELETE_TASK_LISTENER,
 } from "./event_listeners.js";
 
 const META_DATA = () => {
@@ -203,6 +204,8 @@ const RENDER_TASK = (task, tasks_container) => {
   DUE_DATE.innerText = due;
   NOTES_LABEL.innerText = "Notes:";
   NOTES.innerText = NOTES_VALUE;
+
+  ATTACH_DELETE_TASK_LISTENER(DELETE_TASK_ICON);
 
   tasks_container.append(TASK_CONTAINER);
   TASK_CONTAINER.append(LABEL);
