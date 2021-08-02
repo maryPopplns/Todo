@@ -79,7 +79,7 @@ const EVENT_LISTENERS = () => {
       const GROUPS = Object.keys(groups);
 
       if (GROUPS.includes(INPUT_TEXT)) {
-        INPUT_FIELD.style.backgroundColor = "rgb(181, 40, 40)";
+        INPUT_FIELD.style.backgroundColor = "#984141";
         document.getElementById("submit_group_icon").style.visibility =
           "hidden";
       } else {
@@ -97,7 +97,7 @@ const ATTACH_DELETE_GROUP_LISTENER = (input_element) => {
     const GROUP_CONTAINER = document.querySelector(
       `[data-group-container=${TARGET_DATA_GROUP}]`
     );
-    GROUP_CONTAINER.style.backgroundColor = "#9b2525e6";
+    GROUP_CONTAINER.style.backgroundColor = "#984141";
   });
 
   input_element.addEventListener("mouseleave", (event) => {

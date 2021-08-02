@@ -158,7 +158,7 @@ const RENDER_TASK = (task, tasks_container) => {
   const DAY = DUE_DATE_VALUE.slice(8, 10);
   const NOTES_VALUE = task.notes;
   const ID = task.id;
-  let difference;
+  let difference, due;
 
   DUE_DATE_VALUE === ""
     ? (difference = 0)
@@ -166,12 +166,20 @@ const RENDER_TASK = (task, tasks_container) => {
         new Date(YEAR, MONTH - 1, DAY),
         new Date()
       ));
-  console.log(difference);
+
+  if (difference === 0) {
+    due = "Today";
+  } else if (difference === 1) {
+    due = "Tomorrow";
+  } else {
+    due = `${difference} days`;
+  }
 
   const TASK_CONTAINER = document.createElement("div");
   const LABEL = document.createElement("h2");
   const PRIORITY = document.createElement("div");
   const DUE_CONTAINER = document.createElement("div");
+  const DUE_LABEL = document.createElement("div");
   const DUE_DATE = document.createElement("div");
   const NOTES_CONTAINER = document.createElement("div");
   const NOTES = document.createElement("div");
@@ -180,11 +188,20 @@ const RENDER_TASK = (task, tasks_container) => {
   TASK_CONTAINER.classList = "task";
   TASK_CONTAINER.setAttribute("data-id", ID);
   LABEL.classList = "task_label";
+  DUE_CONTAINER.classList = "due_container";
+  DELETE_TASK_ICON.classList = "delete_task_icon fa fa-trash";
+  DELETE_TASK_ICON.id = ID;
 
   LABEL.innerText = LABEL_VALUE;
+  DUE_LABEL.innerText = "Due : ";
+  DUE_DATE.innerText = due;
 
   tasks_container.append(TASK_CONTAINER);
   TASK_CONTAINER.append(LABEL);
+  TASK_CONTAINER.append(DUE_CONTAINER);
+  DUE_CONTAINER.append(DUE_LABEL);
+  DUE_CONTAINER.append(DUE_DATE);
+  TASK_CONTAINER.append(DELETE_TASK_ICON);
 };
 
 const RENDER_GROUP = (event, name) => {

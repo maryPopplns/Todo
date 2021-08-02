@@ -68,6 +68,10 @@ i[data-group] {
   text-indent: 0;
 }
 
+.delete_group {
+  color: #984141;
+}
+
 #add_group {
   cursor: grab;
   margin: auto;
@@ -103,6 +107,21 @@ i[data-group] {
   cursor: grab;
 }
 
+.task {
+  background-color: var(--green);
+}
+
 .task_label {
+  text-decoration: underline;
   color: white;
+}
+
+.due_container {
+  display: flex;
+  justify-content: space-between;
+  color: var(--background);
+}
+
+.delete_task_icon {
+  color: #984141;
 }
