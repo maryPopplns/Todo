@@ -52,37 +52,33 @@ const NAV_BAR = () => {
   const MAIN = document.createElement("main");
   const NAV_CONTAINER = document.createElement("nav");
   const DUE_CONTAINER = document.createElement("ol");
-  const DUE_HEADING = document.createElement("h2");
   const DUE_TODAY = document.createElement("li");
-  const DUE_THIS_WEEK = document.createElement("li");
+  const HIGH_PRIORITY = document.createElement("li");
   const GROUP_CONTAINER = document.createElement("div");
   const GROUP_HEADING = document.createElement("h2");
   const GROUP_LIST = document.createElement("ol");
 
   NAV_CONTAINER.id = "nav_container";
   DUE_CONTAINER.id = "due_container";
-  DUE_HEADING.id = "due_heading";
   DUE_TODAY.id = "due_today";
-  DUE_THIS_WEEK.id = "due_this_week";
+  HIGH_PRIORITY.id = "high_priority";
   GROUP_CONTAINER.id = "group_container";
   GROUP_HEADING.id = "group_heading";
   GROUP_LIST.id = "task_group_container";
 
-  const TIME_PERIOD_VIEW = [DUE_TODAY, DUE_THIS_WEEK].map(
-    (element) => (element.classList = "time_periods")
+  const TIME_PERIOD_VIEW = [DUE_TODAY, HIGH_PRIORITY].map(
+    (element) => (element.classList = "important_tasks")
   );
 
-  DUE_HEADING.innerText = "Due";
-  DUE_TODAY.innerText = "Today";
-  DUE_THIS_WEEK.innerText = "Week";
+  DUE_TODAY.innerText = "Due today";
+  HIGH_PRIORITY.innerText = "High Priority";
   GROUP_HEADING.innerText = "Groups";
 
   document.body.append(MAIN);
   MAIN.append(NAV_CONTAINER);
   NAV_CONTAINER.append(DUE_CONTAINER);
-  DUE_CONTAINER.append(DUE_HEADING);
   DUE_CONTAINER.append(DUE_TODAY);
-  DUE_CONTAINER.append(DUE_THIS_WEEK);
+  DUE_CONTAINER.append(HIGH_PRIORITY);
   NAV_CONTAINER.append(GROUP_CONTAINER);
   GROUP_CONTAINER.append(GROUP_HEADING);
   GROUP_CONTAINER.append(GROUP_LIST);

@@ -23,6 +23,10 @@ body {
   font-family: "Archivo Black", sans-serif;
 }
 
+h2 {
+  cursor: default;
+}
+
 header {
   user-select: none;
   margin-top: 1em;
@@ -43,9 +47,17 @@ h1 {
   text-decoration: underline;
 }
 
-.time_periods {
+.important_tasks {
   cursor: grab;
   background-color: #28bda7;
+}
+
+#due_today {
+  background-color: #28bda7;
+}
+
+#high_priority {
+  background-color: #956464;
 }
 
 #task_group_container {
@@ -129,5 +141,6 @@ i[data-group] {
 }
 
 .delete_task_icon {
+  cursor: grab;
   color: #984141;
 }

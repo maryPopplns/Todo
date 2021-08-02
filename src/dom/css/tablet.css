@@ -33,11 +33,11 @@
     margin-bottom: 0.5em;
   }
 
-  .time_periods {
+  .important_tasks {
     padding: 1em;
   }
 
-  .time_periods:hover {
+  .important_tasks:hover {
     text-indent: 2em;
   }
 
@@ -129,6 +129,7 @@
   }
 
   .tasks_container {
+    user-select: none;
     display: flex;
     flex-wrap: wrap;
     align-content: flex-start;
