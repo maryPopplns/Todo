@@ -60,7 +60,7 @@
 
   .nav_bar_group {
     text-indent: 1em;
-    height: 10em;
+    padding: 0.25em 0;
   }
 
   .nav_bar_group:hover {
@@ -134,10 +134,13 @@
   }
 
   .task {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     margin: 1em;
     border: 1px solid white;
-    width: 5em;
-    height: 5em;
+    width: 8em;
+    height: 8em;
   }
 
   .add_task_button {

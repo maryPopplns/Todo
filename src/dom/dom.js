@@ -1,3 +1,4 @@
+import { differenceInDays } from "date-fns";
 import { groups } from "../app.js";
 import {
   ATTACH_DELETE_GROUP_LISTENER,
@@ -53,7 +54,6 @@ const NAV_BAR = () => {
   const DUE_HEADING = document.createElement("h2");
   const DUE_TODAY = document.createElement("li");
   const DUE_THIS_WEEK = document.createElement("li");
-  const DUE_THIS_MONTH = document.createElement("li");
   const GROUP_CONTAINER = document.createElement("div");
   const GROUP_HEADING = document.createElement("h2");
   const GROUP_LIST = document.createElement("ol");
@@ -63,19 +63,17 @@ const NAV_BAR = () => {
   DUE_HEADING.id = "due_heading";
   DUE_TODAY.id = "due_today";
   DUE_THIS_WEEK.id = "due_this_week";
-  DUE_THIS_MONTH.id = "due_this_month";
   GROUP_CONTAINER.id = "group_container";
   GROUP_HEADING.id = "group_heading";
   GROUP_LIST.id = "task_group_container";
 
-  const TIME_PERIOD_VIEW = [DUE_TODAY, DUE_THIS_WEEK, DUE_THIS_MONTH].map(
+  const TIME_PERIOD_VIEW = [DUE_TODAY, DUE_THIS_WEEK].map(
     (element) => (element.classList = "time_periods")
   );
 
   DUE_HEADING.innerText = "Due";
   DUE_TODAY.innerText = "Today";
   DUE_THIS_WEEK.innerText = "Week";
-  DUE_THIS_MONTH.innerText = "Month";
   GROUP_HEADING.innerText = "Groups";
 
   document.body.append(MAIN);
@@ -84,7 +82,6 @@ const NAV_BAR = () => {
   DUE_CONTAINER.append(DUE_HEADING);
   DUE_CONTAINER.append(DUE_TODAY);
   DUE_CONTAINER.append(DUE_THIS_WEEK);
-  DUE_CONTAINER.append(DUE_THIS_MONTH);
   NAV_CONTAINER.append(GROUP_CONTAINER);
   GROUP_CONTAINER.append(GROUP_HEADING);
   GROUP_CONTAINER.append(GROUP_LIST);
@@ -153,20 +150,41 @@ const ADD_GROUP_INPUT = () => {
 };
 
 const RENDER_TASK = (task, tasks_container) => {
+  const LABEL_VALUE = task.label;
+  const PRIORITY_VALUE = task.priority;
+  const DUE_DATE_VALUE = task.due_date.slice(0, 10);
+  const YEAR = DUE_DATE_VALUE.slice(0, 4);
+  const MONTH = DUE_DATE_VALUE.slice(5, 7);
+  const DAY = DUE_DATE_VALUE.slice(8, 10);
+  const NOTES_VALUE = task.notes;
+  const ID = task.id;
+  let difference;
+
+  DUE_DATE_VALUE === ""
+    ? (difference = 0)
+    : (difference = differenceInDays(
+        new Date(YEAR, MONTH - 1, DAY),
+        new Date()
+      ));
+  console.log(difference);
+
   const TASK_CONTAINER = document.createElement("div");
-  const LABEL = task.label;
-  const PRIORITY = task.priority;
-  const DUE_DATE = task.due_date;
-  const NOTES = task.notes;
+  const LABEL = document.createElement("h2");
+  const PRIORITY = document.createElement("div");
+  const DUE_CONTAINER = document.createElement("div");
+  const DUE_DATE = document.createElement("div");
+  const NOTES_CONTAINER = document.createElement("div");
+  const NOTES = document.createElement("div");
+  const DELETE_TASK_ICON = document.createElement("i");
 
   TASK_CONTAINER.classList = "task";
+  TASK_CONTAINER.setAttribute("data-id", ID);
+  LABEL.classList = "task_label";
+
+  LABEL.innerText = LABEL_VALUE;
 
   tasks_container.append(TASK_CONTAINER);
-
-  console.log(LABEL);
-  console.log(PRIORITY);
-  console.log(DUE_DATE);
-  console.log(NOTES);
+  TASK_CONTAINER.append(LABEL);
 };
 
 const RENDER_GROUP = (event, name) => {
