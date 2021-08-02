@@ -179,6 +179,7 @@ const RENDER_GROUP = (event, name) => {
 
   const TASKS = groups[GROUP_NAME].map((task) => {
     RENDER_TASK(task, TASKS_CONTAINER);
+    task;
   });
 
   TASKS_CONTAINER.classList = "tasks_container";
@@ -202,7 +203,7 @@ const RENDER_ADD_TASK_BUTTON = (group_name, task_container) => {
   const PLUS_ICON = document.createElement("i");
 
   BUTTON.setAttribute("data-add-task", group_name);
-  BUTTON.classList = "add_task_button";
+  BUTTON.classList = "task add_task_button";
   PLUS_ICON.classList = "fas fa-plus add_task_icon";
 
   task_container.append(BUTTON);
