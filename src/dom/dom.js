@@ -4,6 +4,7 @@ import {
   ATTACH_RENDER_GROUP_LISTENER,
   CANCEL_ADD_TASK,
   APPLY_ADD_TASK,
+  ATTACH_ADD_TASK_LISTENER,
 } from "./event_listeners.js";
 
 const META_DATA = () => {
@@ -159,6 +160,25 @@ const RENDER_TASK = (task, tasks_container) => {
   tasks_container.append(TASK_CONTAINER);
 };
 
+const RENDER_GROUP = (event) => {
+  const GROUP_NAME = event.target.getAttribute("data-group-text");
+  const TASKS_CONTAINER = document.createElement("div");
+
+  const ADD_TASK_ICON = RENDER_ADD_TASK_BUTTON(GROUP_NAME, TASKS_CONTAINER);
+
+  ATTACH_ADD_TASK_LISTENER(ADD_TASK_ICON);
+
+  const TASKS = groups[GROUP_NAME].map((task) => {
+    RENDER_TASK(task, TASKS_CONTAINER);
+  });
+
+  TASKS_CONTAINER.classList = "tasks_container";
+  TASKS_CONTAINER.setAttribute("data-group-tasks", GROUP_NAME);
+
+  document.getElementsByTagName("main")[0].append(TASKS_CONTAINER);
+  document.getElementById("header").innerText = GROUP_NAME;
+};
+
 const REMOVE_CURRENT_GROUP = () => {
   const TASK_CONTAINER = [
     ...document.getElementsByClassName("tasks_container"),
@@ -278,4 +298,5 @@ export {
   RENDER_ADD_TASK_BUTTON,
   RENDER_ADD_TASK_FORM,
   REMOVE_ADD_TASK_FORM,
+  RENDER_GROUP,
 };

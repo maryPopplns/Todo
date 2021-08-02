@@ -60,7 +60,7 @@
 
   .nav_bar_group {
     text-indent: 1em;
-    padding: 0.25em;
+    height: 10em;
   }
 
   .nav_bar_group:hover {

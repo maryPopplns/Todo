@@ -2,6 +2,7 @@ import {
   ADD_GROUP_INPUT_HANDLER,
   REMOVE_CURRENT_GROUP,
   RENDER_NAV_BAR_GROUPS,
+  RENDER_GROUP,
   RENDER_TASK,
   RENDER_ADD_TASK_BUTTON,
   RENDER_ADD_TASK_FORM,
@@ -125,26 +126,15 @@ const ATTACH_RENDER_GROUP_LISTENER = (input_element) => {
 
     if (CURRRENT_CONTAINER === null) {
       REMOVE_CURRENT_GROUP();
-
-      const GROUP_NAME = event.target.getAttribute("data-group-text");
-      const TASKS_CONTAINER = document.createElement("div");
-
-      const ADD_TASK_ICON = RENDER_ADD_TASK_BUTTON(GROUP_NAME, TASKS_CONTAINER);
-      ADD_TASK_ICON.addEventListener("click", (event) => {
-        const GROUP_NAME = event.currentTarget.getAttribute("data-add-task");
-        RENDER_ADD_TASK_FORM(GROUP_NAME);
-      });
-
-      const TASKS = groups[GROUP_NAME].map((task) => {
-        RENDER_TASK(task, TASKS_CONTAINER);
-      });
-
-      TASKS_CONTAINER.classList = "tasks_container";
-      TASKS_CONTAINER.setAttribute("data-group-tasks", GROUP_NAME);
-
-      document.getElementsByTagName("main")[0].append(TASKS_CONTAINER);
-      document.getElementById("header").innerText = GROUP_NAME;
+      RENDER_GROUP(event);
     }
+  });
+};
+
+const ATTACH_ADD_TASK_LISTENER = (element) => {
+  element.addEventListener("click", (event) => {
+    const GROUP_NAME = event.currentTarget.getAttribute("data-add-task");
+    RENDER_ADD_TASK_FORM(GROUP_NAME);
   });
 };
 
@@ -172,7 +162,9 @@ const APPLY_ADD_TASK = (apply_icon) => {
 
     const NEW_TASK = new Task(LABEL_VALUE, PRIORITY_VALUE, due, NOTES_VALUE);
 
-    console.log(NEW_TASK);
+    groups[GROUP_NAME].push(NEW_TASK);
+
+    REMOVE_ADD_TASK_FORM();
   });
 };
 
@@ -182,4 +174,5 @@ export {
   ATTACH_RENDER_GROUP_LISTENER,
   CANCEL_ADD_TASK,
   APPLY_ADD_TASK,
+  ATTACH_ADD_TASK_LISTENER,
 };
