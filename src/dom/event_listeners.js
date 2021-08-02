@@ -3,7 +3,6 @@ import {
   REMOVE_CURRENT_GROUP,
   RENDER_NAV_BAR_GROUPS,
   RENDER_GROUP,
-  RENDER_TASK,
   RENDER_ADD_TASK_BUTTON,
   RENDER_ADD_TASK_FORM,
   REMOVE_ADD_TASK_FORM,
@@ -158,7 +157,7 @@ const APPLY_ADD_TASK = (apply_icon) => {
     const MONTH = DUE_DATE_VALUE.slice(5, 7);
     const DAY = DUE_DATE_VALUE.slice(8, 10);
     let due;
-    DUE_DATE_VALUE === "" ? (due = "") : (due = new Date(YEAR, MONTH, DAY));
+    DUE_DATE_VALUE === "" ? (due = "") : (due = `${YEAR}_${MONTH}_${DAY}`);
 
     const NEW_TASK = new Task(LABEL_VALUE, PRIORITY_VALUE, due, NOTES_VALUE);
 
@@ -167,7 +166,8 @@ const APPLY_ADD_TASK = (apply_icon) => {
     REMOVE_ADD_TASK_FORM();
     REMOVE_CURRENT_GROUP();
     RENDER_GROUP(null, GROUP_NAME);
-    SET_STORAGE();
+    console.log(groups);
+    // SET_STORAGE();
   });
 };
 

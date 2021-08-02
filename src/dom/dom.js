@@ -151,6 +151,7 @@ const ADD_GROUP_INPUT = () => {
 };
 
 const RENDER_TASK = (task, tasks_container) => {
+  // debugger;
   const LABEL_VALUE = task.label;
   const PRIORITY_VALUE = task.priority;
   const DUE_DATE_VALUE = task.due_date.slice(0, 10);
@@ -159,6 +160,7 @@ const RENDER_TASK = (task, tasks_container) => {
   const DAY = DUE_DATE_VALUE.slice(8, 10);
   const NOTES_VALUE = task.notes;
   const ID = task.id;
+
   let difference, due;
 
   DUE_DATE_VALUE === ""
@@ -228,7 +230,6 @@ const RENDER_GROUP = (event, name) => {
 
   const TASKS = groups[GROUP_NAME].map((task) => {
     RENDER_TASK(task, TASKS_CONTAINER);
-    task;
   });
 
   TASKS_CONTAINER.classList = "tasks_container";
@@ -352,7 +353,6 @@ export {
   MENU_BUTTON,
   RENDER_NAV_BAR_GROUPS,
   ADD_GROUP_INPUT,
-  RENDER_TASK,
   REMOVE_CURRENT_GROUP,
   RENDER_ADD_TASK_BUTTON,
   RENDER_ADD_TASK_FORM,
