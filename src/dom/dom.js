@@ -160,8 +160,8 @@ const RENDER_TASK = (task, tasks_container) => {
   tasks_container.append(TASK_CONTAINER);
 };
 
-const RENDER_GROUP = (event) => {
-  const GROUP_NAME = event.target.getAttribute("data-group-text");
+const RENDER_GROUP = (event, name) => {
+  const GROUP_NAME = name || event.target.getAttribute("data-group-text");
   const TASKS_CONTAINER = document.createElement("div");
 
   const ADD_TASK_ICON = RENDER_ADD_TASK_BUTTON(GROUP_NAME, TASKS_CONTAINER);
