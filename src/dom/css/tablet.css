@@ -125,8 +125,9 @@
 
   .tasks_container {
     display: flex;
-    align-items: flex-start;
     flex-wrap: wrap;
+    align-content: flex-start;
+
     height: calc(100vh - 140px);
     min-height: 700px;
     width: calc(100vw - 15em);

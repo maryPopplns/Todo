@@ -167,6 +167,7 @@ const APPLY_ADD_TASK = (apply_icon) => {
     REMOVE_ADD_TASK_FORM();
     REMOVE_CURRENT_GROUP();
     RENDER_GROUP(null, GROUP_NAME);
+    SET_STORAGE();
   });
 };
 

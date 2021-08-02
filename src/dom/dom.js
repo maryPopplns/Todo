@@ -154,10 +154,19 @@ const ADD_GROUP_INPUT = () => {
 
 const RENDER_TASK = (task, tasks_container) => {
   const TASK_CONTAINER = document.createElement("div");
+  const LABEL = task.label;
+  const PRIORITY = task.priority;
+  const DUE_DATE = task.due_date;
+  const NOTES = task.notes;
 
   TASK_CONTAINER.classList = "task";
 
   tasks_container.append(TASK_CONTAINER);
+
+  console.log(LABEL);
+  console.log(PRIORITY);
+  console.log(DUE_DATE);
+  console.log(NOTES);
 };
 
 const RENDER_GROUP = (event, name) => {
