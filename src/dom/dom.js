@@ -182,6 +182,7 @@ const RENDER_TASK = (task, tasks_container) => {
   const DUE_LABEL = document.createElement("div");
   const DUE_DATE = document.createElement("div");
   const NOTES_CONTAINER = document.createElement("div");
+  const NOTES_LABEL = document.createElement("div");
   const NOTES = document.createElement("div");
   const DELETE_TASK_ICON = document.createElement("i");
 
@@ -189,18 +190,28 @@ const RENDER_TASK = (task, tasks_container) => {
   TASK_CONTAINER.setAttribute("data-id", ID);
   LABEL.classList = "task_label";
   DUE_CONTAINER.classList = "due_container";
+  NOTES_CONTAINER.classList = "notes_container";
+  NOTES.classList = "note";
   DELETE_TASK_ICON.classList = "delete_task_icon fa fa-trash";
   DELETE_TASK_ICON.id = ID;
+  if (NOTES_VALUE === "") {
+    NOTES_CONTAINER.style.visibility = "hidden";
+  }
 
   LABEL.innerText = LABEL_VALUE;
-  DUE_LABEL.innerText = "Due : ";
+  DUE_LABEL.innerText = "Due:";
   DUE_DATE.innerText = due;
+  NOTES_LABEL.innerText = "Notes:";
+  NOTES.innerText = NOTES_VALUE;
 
   tasks_container.append(TASK_CONTAINER);
   TASK_CONTAINER.append(LABEL);
   TASK_CONTAINER.append(DUE_CONTAINER);
   DUE_CONTAINER.append(DUE_LABEL);
   DUE_CONTAINER.append(DUE_DATE);
+  TASK_CONTAINER.append(NOTES_CONTAINER);
+  NOTES_CONTAINER.append(NOTES_LABEL);
+  NOTES_CONTAINER.append(NOTES);
   TASK_CONTAINER.append(DELETE_TASK_ICON);
 };
 

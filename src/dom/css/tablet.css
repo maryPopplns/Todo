@@ -146,12 +146,29 @@
   }
 
   .task_label {
+    width: 8em;
+    text-align: center;
     font-size: 1.5em;
-    /* margin-bottom: 3em; */
   }
 
   .due_container {
     width: 11em;
+  }
+
+  .notes_container {
+    width: 11em;
+    height: 2em;
+  }
+
+  .note {
+    max-width: 5em;
+    overflow-y: auto;
+  }
+
+  .delete_task_icon {
+    position: relative;
+    left: 5.1em;
+    top: 0.5em;
   }
 
   .add_task_button {
