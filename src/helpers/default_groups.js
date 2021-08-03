@@ -21,13 +21,24 @@ if (window.localStorage.length === 0) {
     const PRIORITY = ["low", "medium", "high"];
 
     for (let i = 0; i < 3; i++) {
-      groups[name].push(
-        new Task(
-          tasks[i],
-          PRIORITY[i],
-          new Date(YEAR, MONTH, DAY + DAYS_DUE_FROM_TODAY[i])
-        )
-      );
+      if (i === 2) {
+        groups[name].push(
+          new Task(
+            tasks[i],
+            PRIORITY[i],
+            new Date(YEAR, MONTH, DAY + DAYS_DUE_FROM_TODAY[i]),
+            "scroll to see the rest of the note"
+          )
+        );
+      } else {
+        groups[name].push(
+          new Task(
+            tasks[i],
+            PRIORITY[i],
+            new Date(YEAR, MONTH, DAY + DAYS_DUE_FROM_TODAY[i])
+          )
+        );
+      }
     }
   };
   DEFAULT_ITERATOR("school", SCHOOL);

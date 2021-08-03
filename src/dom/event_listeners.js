@@ -1,3 +1,4 @@
+import { differenceInDays } from "date-fns";
 import {
   ADD_GROUP_INPUT_HANDLER,
   REMOVE_CURRENT_GROUP,
@@ -6,8 +7,11 @@ import {
   RENDER_ADD_TASK_BUTTON,
   RENDER_ADD_TASK_FORM,
   REMOVE_ADD_TASK_FORM,
+  RENDER_TASK,
 } from "./dom.js";
 import { groups, Task, SET_STORAGE } from "../app.js";
+import { DUE_TODAY_HANDLER } from "../helpers/due_today.js";
+import { HIGH_PRIORITY_HANDLER } from "../helpers/high_priority.js";
 
 const EVENT_LISTENERS = () => {
   const HAMBURGER_MENU = (() => {
@@ -166,8 +170,7 @@ const APPLY_ADD_TASK = (apply_icon) => {
     REMOVE_ADD_TASK_FORM();
     REMOVE_CURRENT_GROUP();
     RENDER_GROUP(null, GROUP_NAME);
-    console.log(groups);
-    // SET_STORAGE();
+    SET_STORAGE();
   });
 };
 
@@ -183,10 +186,26 @@ const ATTACH_DELETE_TASK_LISTENER = (icon) => {
       });
       groups[prop] = groups[prop].filter((task) => task.id !== TASK_ID);
     }
-    REMOVE_CURRENT_GROUP();
-    RENDER_GROUP(null, group);
+    if (document.getElementById("header").innerText === "Due today") {
+      DUE_TODAY_HANDLER();
+    } else if (
+      document.getElementById("header").innerText === "High Priority"
+    ) {
+      HIGH_PRIORITY_HANDLER();
+    } else {
+      REMOVE_CURRENT_GROUP();
+      RENDER_GROUP(null, group);
+    }
     SET_STORAGE();
   });
+};
+
+const ATTACH_DUE_TODAY_LISTENER = (due_today_element) => {
+  due_today_element.addEventListener("click", DUE_TODAY_HANDLER);
+};
+
+const ATTACH_HIGH_PRIORITY_LISTENER = (high_priority_element) => {
+  high_priority_element.addEventListener("click", HIGH_PRIORITY_HANDLER);
 };
 
 export {
@@ -197,4 +216,6 @@ export {
   APPLY_ADD_TASK,
   ATTACH_ADD_TASK_LISTENER,
   ATTACH_DELETE_TASK_LISTENER,
+  ATTACH_DUE_TODAY_LISTENER,
+  ATTACH_HIGH_PRIORITY_LISTENER,
 };
